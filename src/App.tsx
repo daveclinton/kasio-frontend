@@ -1,6 +1,9 @@
 import { ChakraProvider } from "@chakra-ui/react";
+import Layout from "./components/Layout";
+
 function App() {
-  return <div>Hello World</div>;
+  return;
+  <ChakraProvider />;
 }
 
 export default App;
