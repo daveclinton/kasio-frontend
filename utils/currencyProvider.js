@@ -1,3 +1,3 @@
-const DENOMINATION = "Ksh "
+const DENOMINATION = '$'
 
 export default DENOMINATION
