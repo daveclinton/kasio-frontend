@@ -21,52 +21,48 @@ const Layout = ({ children, categories }) => {
       "
           >
             <div className="mb-4 sm:mr-16 max-w-48 sm:max-w-none">
-              <Link href="/">
-                <a aria-label="Home">
-                  <h1 className="text-5xl font-extrabold dark:text-white">
-                    KASIO
-                  </h1>
-                </a>
+              <Link href="/" aria-label="Home">
+                <h1 className="text-5xl font-extrabold dark:text-white">
+                  KASIO
+                </h1>
               </Link>
             </div>
             <div className="flex flex-wrap mt-1">
-              <Link href="/">
-                <a aria-label="Home">
-                  <p
-                    className="
+              <Link href="/" aria-label="Home">
+                <p
+                  className="
                 sm:mr-8 sm:mb-0
                 mb-4 text-left text-smaller mr-4
               "
-                  >
-                    Home
-                  </p>
-                </a>
+                >
+                  Home
+                </p>
               </Link>
               {categories.map((category, index) => (
-                <Link href={`/category/${slugify(category)}`} key={index}>
-                  <a aria-label={category}>
-                    <p
-                      className="
+                <Link
+                  href={`/category/${slugify(category)}`}
+                  key={index}
+                  aria-label={category}
+                >
+                  <p
+                    className="
                       sm:mr-8 sm:mb-0
                       mb-4 text-left text-smaller mr-4
                     "
-                    >
-                      {category.charAt(0).toUpperCase() + category.slice(1)}
-                    </p>
-                  </a>
+                  >
+                    {category.charAt(0).toUpperCase() + category.slice(1)}
+                  </p>
                 </Link>
               ))}
-              <Link href="/categories">
-                <a aria-label="All categories">
-                  <p
-                    className="
+              <Link href="/categories" aria-label="All categories">
+                <p
+                  className="
                 sm:mr-8 sm:mb-0
                 mb-4 text-left text-smaller mr-4 
               "
-                  >
-                    All
-                  </p>
-                </a>
+                >
+                  All
+                </p>
               </Link>
             </div>
           </div>
@@ -94,10 +90,8 @@ const Layout = ({ children, categories }) => {
         flex flex-1 mt-4
       "
           >
-            <Link href="/admin">
-              <a aria-label="Admin panel">
-                <p className="text-sm font-semibold">Admins</p>
-              </a>
+            <Link href="/admin" aria-label="Admin panel">
+              <p className="text-sm font-semibold">Admins</p>
             </Link>
           </div>
         </div>
