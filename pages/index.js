@@ -36,11 +36,11 @@ const Home = ({ inventoryData = [], categories: categoryData = [] }) => {
           <div className="pt-4 pl-2 sm:pt-12 sm:pl-12 flex flex-col">
             <Tag year="2021" category="SOFAS" />
             <Center
-              price="200"
+              price="16,000"
               title={inventory[2].name}
               link={`/product/${slugify(inventory[2].name)}`}
             />
-            <Footer designer="Jason Bourne" />
+            <Footer deal="30% off" />
           </div>
           <div className="flex flex-1 justify-center items-center relative">
             <Showcase imageSrc={inventory[2].image} />
