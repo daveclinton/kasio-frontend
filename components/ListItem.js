@@ -12,14 +12,12 @@ const ListItem = ({ link, title, imageSrc, price }) => (
     p1 sm:p-2
   "
   >
-    <Link href={`${link}`}>
-      <a aria-label={title}>
-        <div className="h-72 flex justify-center items-center bg-light hover:bg-light-200">
-          <div className="flex flex-column justify-center items-center">
-            <Image alt={title} src={imageSrc} className="w-3/5" />
-          </div>
+    <Link href={`${link}`} aria-label={title}>
+      <div className="h-72 flex justify-center items-center bg-light hover:bg-light-200">
+        <div className="flex flex-column justify-center items-center">
+          <Image alt={title} src={imageSrc} className="w-3/5" />
         </div>
-      </a>
+      </div>
     </Link>
     <div>
       <p className="m-4 text-center text-l font-semibold mb-1">{title}</p>
