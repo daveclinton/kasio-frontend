@@ -1,46 +1,181 @@
-# Getting Started with Create React App
+## Jamstack ECommerce Next
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Jamstack ECommerce Next provides a way to quickly get up and running with a fully configurable ECommerce site using Next.js.
 
-## Available Scripts
+Out of the box, the site uses completely static data coming from a provider at `providers/inventoryProvider.js`. You can update this provider to fetch data from any real API by changing the call in the `getInventory` function.
 
-In the project directory, you can run:
+![Home](example-images/1.png)
 
-### `yarn start`
+### Live preview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Click [here](https://www.jamstackecommerce.dev/) to see a live preview.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<details>
+  <summary>Other Jamstack ECommerce pages</summary>
 
-### `yarn test`
+### Category view
+![Category view](example-images/2.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Item view
+![Item view](example-images/3.png)
 
-### `yarn build`
+### Cart view
+![Cart view](example-images/4.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Admin panel
+![Admin panel](example-images/5.png)
+</details>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Getting started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the project
 
-### `yarn eject`
+```sh
+$ git clone https://github.com/jamstack-cms/jamstack-ecommerce.git
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2. Install the dependencies:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+$ yarn
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# or
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+$ npm install
+```
 
-## Learn More
+3. Run the project
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+$ npm run dev
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# or to build
+
+$ npm run build
+```
+
+## Deploy to Vercel
+
+Use the [Vercel CLI](https://vercel.com/download)
+
+```sh
+vercel
+```
+
+## Deploy to AWS
+
+```sh
+npx serverless
+```
+
+## About the project
+
+### Tailwind
+
+This project is styled using Tailwind. To learn more how this works, check out the Tailwind documentation [here](https://tailwindcss.com/docs).
+
+### Components
+
+The main files, components, and images you may want to change / modify are:
+
+__Logo__ - public/logo.png   
+__Button, ListItem, etc..__ - components   
+__Form components__ - components/formComponents   
+__Context (state)__ - context/mainContext.js   
+__Pages (admin, cart, checkout, index)__ - pages   
+__Templates (category view, single item view, inventory views)__ - templates   
+
+### How it works
+
+As it is set up, inventory is fetched from a local hard coded array of inventory items. This can easily be configured to instead be fetched from a remote source like Shopify or another CMS or data source by changing the inventory provider.
+
+#### Configuring inventory provider
+
+Update __utils/inventoryProvider.js__ with your own inventory provider.
+
+#### Download images at build time
+
+If you change the provider to fetch images from a remote source, you may choose to also download the images locally at build time to improve performance. Here is an example of some code that should work for this use case:
+
+```javascript
+import fs from 'fs'
+import axios from 'axios'
+import path from 'path'
+
+function getImageKey(url) {
+  const split = url.split('/')
+  const key = split[split.length - 1]
+  const keyItems = key.split('?')
+  const imageKey = keyItems[0]
+  return imageKey
+}
+
+function getPathName(url, pathName = 'downloads') {
+  let reqPath = path.join(__dirname, '..')
+  let key = getImageKey(url)
+  key = key.replace(/%/g, "")
+  const rawPath = `${reqPath}/public/${pathName}/${key}`
+  return rawPath
+}
+
+async function downloadImage (url) {
+  return new Promise(async (resolve, reject) => {
+    const path = getPathName(url)
+    const writer = fs.createWriteStream(path)
+    const response = await axios({
+      url,
+      method: 'GET',
+      responseType: 'stream'
+    })
+    response.data.pipe(writer)
+    writer.on('finish', resolve)
+    writer.on('error', reject)
+  })
+}
+
+export default downloadImage
+```
+
+You can use this function to map over the inventory data after fetching and replace the image paths with a reference to the location of the downloaded images, probably would look something like this:
+
+```javascript
+await Promise.all(
+  inventory.map(async (item, index) => {
+    try {
+      const relativeUrl = `../downloads/${item.image}`
+      if (!fs.existsSync(`${__dirname}/public/downloads/${item.image}`)) {
+        await downloadImage(image)
+      }
+      inventory[index].image = relativeUrl
+    } catch (err) {
+      console.log('error downloading image: ', err)
+    }
+  })
+)
+```
+
+### Updating with Auth / Admin panel
+
+1. Update __pages/admin.js__ with sign up, sign, in, sign out, and confirm sign in methods.
+
+2. Update __components/ViewInventory.js__ with methods to interact with the actual inventory API.
+
+3. Update __components/formComponents/AddInventory.js__ with methods to add item to actual inventory API.
+
+### Roadmap
+
+- Full product and category search
+- Auto dropdown navigation for large number of categories
+- Ability to add more / more configurable metadata to item details
+- Themeing + dark mode
+- Optional user account / profiles out of the box
+- Make Admin Panel responsive
+- Have an idea or a request? Submit [an issue](https://github.com/jamstack-cms/jamstack-ecommerce/issues) or [a pull request](https://github.com/jamstack-cms/jamstack-ecommerce/pulls)!
+
+### Other considerations
+
+#### Server-side processing of payments
+
+To see an example of how to process payments server-side with stripe, check out the [Lambda function in the snippets folder](https://github.com/jamstack-cms/jamstack-ecommerce/blob/next/snippets/lambda.js).
+
+Also, consider verifying totals by passing in an array of IDs into the function, calculating the total on the server, then comparing the totals to check and make sure they match.
