@@ -3,19 +3,21 @@ import { v4 as uuid } from "uuid"
 let inventory = [
   {
     categories: ["new arrivals"],
-    name: "Timber Gray Sofa 2.0",
-    price: "1000",
-    image: "/products/couch1.png",
+    name: "Epson EcoTank L3250 A4 Wi-Fi All-in-One Ink Tank Printer",
+    price: "30,500",
+    image:
+      "https://o.remove.bg/downloads/6750d150-b38c-4824-b1a4-1ae03f4984d8/3-removebg-preview.png",
     description:
-      "Stay a while. The Timber charme chocolat sofa is set atop an oak trim and flaunts fluffy leather back and seat cushions. Over time, this brown leather sofa’s full-aniline upholstery will develop a worn-in vintage look. Snuggle up with your cutie (animal or human) and dive into a bowl of popcorn. This sofa is really hard to leave. Natural color variations, wrinkles and creases are part of the unique characteristics of this leather. It will develop a relaxed vintage look with regular use.",
+      "The multi-functional EcoTank L3250 is designed to improve business cost savings and print productivity. Expect a high print yield of up to 4,500 pages for black-and-white, and 7,500 pages for colour. You can even print borderless photos up to 4R size. The integrated ink tanks and designated nozzles ensure spill-free and error-free refilling. The EcoTank L3250 delivers convenient wireless connectivity, enabling direct printing from smart devices. You can download the Epson Smart Panel app to your mobile device and easily manage your printing functions and printer setup, making this especially useful for non-panel printers. Make the smart business move with the right print solution today.",
     brand: "Jason Bourne",
     currentInventory: 4,
   },
   {
-    categories: ["printers", "computers"],
-    name: "Carmel Brown Sofa",
-    price: "1000",
-    image: "/products/couch5.png",
+    categories: ["printers"],
+    name: "XPrinter 80mm POS Receipt Printer, Auto Cutter USB",
+    price: "9,500",
+    image:
+      "https://o.remove.bg/downloads/e7ff408c-1f63-4c26-ad15-d1fb9fc7139c/1-removebg-preview.png",
     description:
       "Stay a while. The Timber charme chocolat sofa is set atop an oak trim and flaunts fluffy leather back and seat cushions. Over time, this brown leather sofa’s full-aniline upholstery will develop a worn-in vintage look. Snuggle up with your cutie (animal or human) and dive into a bowl of popcorn. This sofa is really hard to leave. Natural color variations, wrinkles and creases are part of the unique characteristics of this leather. It will develop a relaxed vintage look with regular use.",
     brand: "Jason Bourne",
@@ -34,85 +36,59 @@ let inventory = [
   },
   {
     categories: ["new arrivals", "printers"],
-    name: "Thetis Gray Love Seat",
-    price: "900",
-    image: "/products/couch7.png",
+    name: "HP Deskjet 2320 Printer-print/photocopy/scan",
+    price: "7,845",
+    image:
+      "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/42/257043/1.jpg?2891",
     description:
-      "You know your dad’s incredible vintage bomber jacket? The Nirvana dakota tan leather sofa is that jacket, but in couch form. With super-plush down-filled cushions, a corner-blocked wooden frame, and a leather patina that only gets better with age, the Nirvana will have you looking cool and feeling peaceful every time you take a seat. Looks pretty great with a sheepskin throw, if we may say so. With use, this leather will become softer and more wrinkled and the cushions will take on a lived-in look, like your favorite leather jacket.",
+      "The simple way to get the essentials. With seamless setup from PC and dependable printing, you can handle your everyday printing, scanning, and copying needs with an affordable printer. Use HP Smart app for a simple setup, and you're ready to go. Dynamic security enabled printer. Intended to be used with cartridges using only HP original electronic circuitry. Cartridges with modified or non-HP electronic circuitry may not work, and those that work today may not work in the future. ",
     brand: "Jason Bourne",
     currentInventory: 10,
   },
   {
     categories: ["on offer", "printers"],
-    name: "Sven Tan Matte",
-    price: "1200",
-    image: "/products/couch8.png",
+    name: "HP Deskjet 2320 Printer-print/photocopy/scan",
+    price: "7,845",
+    image:
+      "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/42/257043/1.jpg?2891",
     description:
-      "You don’t have to go outside to be rugged. The Cigar rawhide sofa features a sturdy corner-blocked wooden frame and raw seams for that Malboro-person look. This brown leather sofa is cozy in a cottage, cabin, or a condo. And the leather (the leather!) becomes more beautiful with use: subtle character markings such as insect bites, healed scars, and grain variation reflects a real vintage. Saddle up and pass the remote.",
+      "The simple way to get the essentials. With seamless setup from PC and dependable printing, you can handle your everyday printing, scanning, and copying needs with an affordable printer. Use HP Smart app for a simple setup, and you're ready to go. Dynamic security enabled printer. Intended to be used with cartridges using only HP original electronic circuitry. Cartridges with modified or non-HP electronic circuitry may not work, and those that work today may not work in the future. ",
     brand: "Jason Bourne",
     currentInventory: 7,
   },
   {
     categories: ["on offer", "printers"],
-    name: "Otis Malt Sofa",
-    price: "500",
-    image: "/products/couch9.png",
+    name: "Canon Pixma TS3140 Wi-Fi, Print, Copy, Scan, Cloud",
+    price: "14,000",
+    image:
+      "https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/81/861468/1.jpg?6546",
     description:
-      "You don’t have to go outside to be rugged. The Cigar rawhide sofa features a sturdy corner-blocked wooden frame and raw seams for that Malboro-person look. This brown leather sofa is cozy in a cottage, cabin, or a condo. And the leather (the leather!) becomes more beautiful with use: subtle character markings such as insect bites, healed scars, and grain variation reflects a real vintage. Saddle up and pass the remote.",
+      "The simple way to get the essentials. With seamless setup from PC and dependable printing, you can handle your everyday printing, scanning, and copying needs with an affordable printer. Use HP Smart app for a simple setup, and you're ready to go. Dynamic security enabled printer. Intended to be used with cartridges using only HP original electronic circuitry. Cartridges with modified or non-HP electronic circuitry may not work, and those that work today may not work in the future. ",
     brand: "Jason Bourne",
     currentInventory: 13,
   },
   {
-    categories: ["on offer", "printers"],
-    name: "Ceni Brown 3 Seater",
-    price: "650",
-    image: "/products/couch10.png",
+    categories: ["computers"],
+    name: "HP 10TH GEN HP Notebook 15® CORE I5®-15.6-16GB RAM-1TGB HDD-Windows 11",
+    price: "14,000",
+    image:
+      "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/08/8316321/1.jpg?8168",
     description:
-      "You don’t have to go outside to be rugged. The Cigar rawhide sofa features a sturdy corner-blocked wooden frame and raw seams for that Malboro-person look. This brown leather sofa is cozy in a cottage, cabin, or a condo. And the leather (the leather!) becomes more beautiful with use: subtle character markings such as insect bites, healed scars, and grain variation reflects a real vintage. Saddle up and pass the remote.",
+      "  Stay productive and entertained from anywhere with long-lasting battery life and micro-edge display.",
     brand: "Jason Bourne",
-    currentInventory: 9,
-  },
-  {
-    categories: ["printers", "computers"],
-    name: "Jameson Jack Lounger",
-    price: "1230",
-    image: "/products/couch11.png",
-    description:
-      "You don’t have to go outside to be rugged. The Cigar rawhide sofa features a sturdy corner-blocked wooden frame and raw seams for that Malboro-person look. This brown leather sofa is cozy in a cottage, cabin, or a condo. And the leather (the leather!) becomes more beautiful with use: subtle character markings such as insect bites, healed scars, and grain variation reflects a real vintage. Saddle up and pass the remote.",
-    brand: "Jason Bourne",
-    currentInventory: 24,
-  },
-
-  {
-    categories: ["printers"],
-    name: "Galaxy Blue Sofa",
-    price: "800",
-    image: "/products/couch2.png",
-    description:
-      "Easy to love. The Sven in birch ivory looks cozy and refined, like a sweater that a fancy lady wears on a coastal vacation. This ivory loveseat has a tufted bench seat, loose back pillows and bolsters, solid walnut legs, and is ready to make your apartment the adult oasis you dream of. Nestle it with plants, an ottoman, an accent chair, or 8 dogs. Your call.",
-    brand: "Jason Bourne",
-    currentInventory: 43,
+    currentInventory: 13,
   },
   {
     categories: ["new arrivals", "printers"],
-    name: "Markus Green Love Seat",
-    price: "900",
-    image: "/products/couch3.png",
+    name: "HP Officejet Pro 7740 Wide Format All-in-One Printer",
+    price: "50,000",
+    image:
+      "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/30/064729/1.jpg?7049",
     description:
-      "You know your dad’s incredible vintage bomber jacket? The Nirvana dakota tan leather sofa is that jacket, but in couch form. With super-plush down-filled cushions, a corner-blocked wooden frame, and a leather patina that only gets better with age, the Nirvana will have you looking cool and feeling peaceful every time you take a seat. Looks pretty great with a sheepskin throw, if we may say so. With use, this leather will become softer and more wrinkled and the cushions will take on a lived-in look, like your favorite leather jacket.",
+      "Print, scan, and copy in standout color on sizes up to 11 x 17 inches (A3), for bold documents and presentations at up to 50% less cost per page than color laser. Order for this Officejet Pro 7740 Wide Format All-in-One Printer with Wireless Printing online from Jumia Kenya and have it delivered to your doorstep.",
     brand: "Jason Bourne",
     currentInventory: 2,
   },
-  {
-    categories: ["on offer", "printers"],
-    name: "Dabit Matte Black",
-    price: "1200",
-    image: "/products/couch4.png",
-    description:
-      "You don’t have to go outside to be rugged. The Cigar rawhide sofa features a sturdy corner-blocked wooden frame and raw seams for that Malboro-person look. This brown leather sofa is cozy in a cottage, cabin, or a condo. And the leather (the leather!) becomes more beautiful with use: subtle character markings such as insect bites, healed scars, and grain variation reflects a real vintage. Saddle up and pass the remote.",
-    currentInventory: 14,
-  },
-
   {
     categories: ["on offer", "accesories"],
     name: "Qwen Wireless Mouse Rechargeable Slient Mouse 2.4GHz",

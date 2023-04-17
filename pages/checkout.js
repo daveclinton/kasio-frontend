@@ -214,7 +214,7 @@ const Checkout = ({ context }) => {
                       onChange={onChange}
                       value={input.state}
                       name="state"
-                      placeholder="State"
+                      placeholder="County"
                     />
                     <Input
                       onChange={onChange}
@@ -224,7 +224,7 @@ const Checkout = ({ context }) => {
                     />
                     <button
                       type="submit"
-                      disabled={!stripe}
+                      // disabled={!stripe}
                       onClick={handleSubmit}
                       className="hidden md:block bg-primary hover:bg-black text-white font-bold py-2 px-4 mt-4 rounded focus:outline-none focus:shadow-outline"
                       type="button"
