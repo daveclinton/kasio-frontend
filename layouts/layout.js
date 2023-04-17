@@ -34,6 +34,7 @@ const Layout = ({ children, categories }) => {
                 sm:mr-8 sm:mb-0
                 mb-4 text-left text-smaller mr-4
               "
+                  style={{ cursor: "pointer" }}
                 >
                   Home
                 </p>
@@ -49,6 +50,7 @@ const Layout = ({ children, categories }) => {
                       sm:mr-8 sm:mb-0
                       mb-4 text-left text-smaller mr-4
                     "
+                    style={{ cursor: "pointer" }}
                   >
                     {category.charAt(0).toUpperCase() + category.slice(1)}
                   </p>
@@ -60,6 +62,7 @@ const Layout = ({ children, categories }) => {
                 sm:mr-8 sm:mb-0
                 mb-4 text-left text-smaller mr-4 
               "
+                  style={{ cursor: "pointer" }}
                 >
                   All
                 </p>

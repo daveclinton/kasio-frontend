@@ -10,6 +10,7 @@ import {
   SiteContext,
   ContextProviderComponent,
 } from "../../context/mainContext"
+import DENOMINATION from "../../utils/currencyProvider"
 
 const ItemView = (props) => {
   const [numberOfitems, updateNumberOfItems] = useState(1)
@@ -65,7 +66,9 @@ const ItemView = (props) => {
           >
             {name}
           </h1>
-          <h2 className="text-2xl tracking-wide sm:py-8 py-6">${price}</h2>
+          <h2 className="text-2xl tracking-wide sm:py-8 py-6">
+            {DENOMINATION + price}
+          </h2>
           <p className="text-gray-600 leading-7">{description}</p>
           <div className="my-6">
             <QuantityPicker

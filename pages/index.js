@@ -36,7 +36,7 @@ const Home = ({ inventoryData = [], categories: categoryData = [] }) => {
               title={inventory[2].name}
               link={`/product/${slugify(inventory[2].name)}`}
             />
-            <Footer designer="Jason Bourne" />
+            <Footer designer="" />
           </div>
           <div className="flex flex-1 justify-center items-center relative">
             <Showcase imageSrc={inventory[2].image} />
