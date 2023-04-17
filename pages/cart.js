@@ -68,24 +68,24 @@ const Cart = ({ context }) => {
                     <div className="border-b py-10" key={item.id}>
                       <div className="flex items-center hidden md:flex">
                         <Link href={`/product/${slugify(item.name)}`}>
-                          <a aria-label={item.name}>
-                            <Image
-                              className="w-32 m-0"
-                              src={item.image}
-                              alt={item.name}
-                            />
-                          </a>
+                          aria-label={item.name}
+                          <Image
+                            className="w-32 m-0"
+                            src={item.image}
+                            alt={item.name}
+                          />
                         </Link>
-                        <Link href={`/product/${slugify(item.name)}`}>
-                          <a aria-label={item.name}>
-                            <p
-                              className="
+                        <Link
+                          href={`/product/${slugify(item.name)}`}
+                          aria-label={item.name}
+                        >
+                          <p
+                            className="
                                 m-0 pl-10 text-gray-600 w-60
                                 "
-                            >
-                              {item.name}
-                            </p>
-                          </a>
+                          >
+                            {item.name}
+                          </p>
                         </Link>
                         <div className="ml-4">
                           <QuantityPicker
@@ -121,16 +121,17 @@ const Cart = ({ context }) => {
                           </a>
                         </Link>
                         <div>
-                          <Link href={`/product/${slugify(item.name)}`}>
-                            <a aria-label={item.name}>
-                              <p
-                                className="
+                          <Link
+                            href={`/product/${slugify(item.name)}`}
+                            aria-label={item.name}
+                          >
+                            <p
+                              className="
                                   m-0 pl-6 text-gray-600 text-base
                                   "
-                              >
-                                {item.name}
-                              </p>
-                            </a>
+                            >
+                              {item.name}
+                            </p>
                           </Link>
                           <div className="ml-6 mt-4 mb-2">
                             <QuantityPicker
@@ -169,15 +170,17 @@ const Cart = ({ context }) => {
             </p>
           </div>
           {!cartEmpty && (
-            <Link href="/checkout" className="flex flex-1 justify-end">
-              <a aria-label="Check out">
-                <div className="cursor-pointer flex items-center">
-                  <p className="text-gray-600 text-sm mr-2">
-                    Proceed to check out
-                  </p>
-                  <FaLongArrowAltRight className="text-gray-600" />
-                </div>
-              </a>
+            <Link
+              href="/checkout"
+              className="flex flex-1 justify-end"
+              aria-label="Check out"
+            >
+              <div className="cursor-pointer flex items-center">
+                <p className="text-gray-600 text-sm mr-2">
+                  Proceed to check out
+                </p>
+                <FaLongArrowAltRight className="text-gray-600" />
+              </div>
             </Link>
           )}
         </div>
