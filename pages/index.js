@@ -14,6 +14,8 @@ import CartLink from "../components/CartLink"
 const Home = ({ inventoryData = [], categories: categoryData = [] }) => {
   const inventory = inventoryData.slice(0, 4)
   const categories = categoryData.slice(0, 2)
+  const date = new Date()
+  const currentYear = date.getFullYear()
 
   return (
     <>
@@ -30,9 +32,9 @@ const Home = ({ inventoryData = [], categories: categoryData = [] }) => {
         flex lg:flex-row flex-col"
         >
           <div className="pt-4 pl-2 sm:pt-12 sm:pl-12 flex flex-col">
-            <Tag year="2021" category="SOFAS" />
+            <Tag year={currentYear} category="PRINTERS" />
             <Center
-              price="200"
+              price="16,000"
               title={inventory[2].name}
               link={`/product/${slugify(inventory[2].name)}`}
             />
