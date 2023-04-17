@@ -4,7 +4,7 @@ let inventory = [
   {
     categories: ["new arrivals"],
     name: "Epson EcoTank L3250 A4 Wi-Fi All-in-One Ink Tank Printer",
-    price: "30,500",
+    price: "30500",
     image: "/products/1.png",
     description:
       "The multi-functional EcoTank L3250 is designed to improve business cost savings and print productivity. Expect a high print yield of up to 4,500 pages for black-and-white, and 7,500 pages for colour. You can even print borderless photos up to 4R size. The integrated ink tanks and designated nozzles ensure spill-free and error-free refilling. The EcoTank L3250 delivers convenient wireless connectivity, enabling direct printing from smart devices. You can download the Epson Smart Panel app to your mobile device and easily manage your printing functions and printer setup, making this especially useful for non-panel printers. Make the smart business move with the right print solution today.",
@@ -14,7 +14,7 @@ let inventory = [
   {
     categories: ["printers"],
     name: "XPrinter 80mm POS Receipt Printer, Auto Cutter USB",
-    price: "9,500",
+    price: "9500",
     image: "/products/2.png",
     description:
       "Stay a while. The Timber charme chocolat sofa is set atop an oak trim and flaunts fluffy leather back and seat cushions. Over time, this brown leather sofa’s full-aniline upholstery will develop a worn-in vintage look. Snuggle up with your cutie (animal or human) and dive into a bowl of popcorn. This sofa is really hard to leave. Natural color variations, wrinkles and creases are part of the unique characteristics of this leather. It will develop a relaxed vintage look with regular use.",
@@ -24,7 +24,7 @@ let inventory = [
   {
     categories: ["new arrivals", "printers"],
     name: "Canon Pixma MG2540s",
-    price: "14,800",
+    price: "14800",
     image: "/products/epson.png",
     description:
       "Using the optional high-capacity Canon XL ink cartridges, you can save as much as 30% on the cost per page compared to their standard equivalents. Get more pages per cartridge and go longer between cartridge replacements; the Canon PIXMA MG2540S won’t cost the earth to run.",
@@ -34,7 +34,7 @@ let inventory = [
   {
     categories: ["new arrivals", "printers"],
     name: "HP Deskjet 2320 Printer-print/photocopy/scan",
-    price: "7,845",
+    price: "7845",
     image:
       "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/42/257043/1.jpg?2891",
     description:
@@ -45,7 +45,7 @@ let inventory = [
   {
     categories: ["on offer", "printers"],
     name: "HP Deskjet 2320 Printer-print/photocopy/scan",
-    price: "7,845",
+    price: "7845",
     image:
       "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/42/257043/1.jpg?2891",
     description:
@@ -56,7 +56,7 @@ let inventory = [
   {
     categories: ["on offer", "printers"],
     name: "Canon Pixma TS3140 Wi-Fi, Print, Copy, Scan, Cloud",
-    price: "14,000",
+    price: "14000",
     image:
       "https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/81/861468/1.jpg?6546",
     description:
@@ -67,7 +67,7 @@ let inventory = [
   {
     categories: ["computers"],
     name: "HP 10TH GEN HP Notebook 15® CORE I5®-15.6-16GB RAM-1TGB HDD-Windows 11",
-    price: "14,000",
+    price: "14000",
     image:
       "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/08/8316321/1.jpg?8168",
     description:
@@ -78,7 +78,7 @@ let inventory = [
   {
     categories: ["new arrivals", "printers"],
     name: "HP Officejet Pro 7740 Wide Format All-in-One Printer",
-    price: "50,000",
+    price: "50000",
     image:
       "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/30/064729/1.jpg?7049",
     description:
@@ -100,7 +100,7 @@ let inventory = [
   {
     categories: ["on offer", "accesories"],
     name: "XIAOMI Mi 4C Wireless Router 2.4GHz 300Mbps",
-    price: "1,799",
+    price: "1799",
     image:
       "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/24/144423/1.jpg?8223",
     description:
@@ -111,7 +111,7 @@ let inventory = [
   {
     categories: ["on offer", "accesories"],
     name: "Generic Professional RJ45 RJ11 RJ12 LAN Network Crimping Tool, UTP LAN Cable Tester and Portable Cable Wire Stripper",
-    price: "1,980",
+    price: "1980",
     image:
       "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/48/575332/1.jpg?0629",
     description:
@@ -122,7 +122,7 @@ let inventory = [
   {
     categories: ["on offer", "accesories"],
     name: "Msi GEFORCE NVIDIA GT730 2GB GRAPHICS CARD - MSI",
-    price: "8,000",
+    price: "8000",
     image:
       "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/79/052328/1.jpg?8248",
     description:
@@ -133,7 +133,7 @@ let inventory = [
   {
     categories: ["on offer", "accesories"],
     name: "HP 17A - CF217A LaserJet Toner Cartridge,Black",
-    price: "2,500",
+    price: "2500",
     image:
       "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/18/177155/1.jpg?4146",
     description:
@@ -144,7 +144,7 @@ let inventory = [
   {
     categories: ["on offer", "accesories"],
     name: "Generic TK-1120 Black Toner Cartridge",
-    price: "1,499",
+    price: "1499",
     image:
       "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/06/459634/1.jpg?0043",
     description:
@@ -167,7 +167,7 @@ let inventory = [
   {
     categories: ["on offer", "accesories"],
     name: "HP CARTRIDGE 650 BLACK",
-    price: "1,999",
+    price: "1999",
     image:
       "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/17/934631/1.jpg?9970",
     description:
