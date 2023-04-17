@@ -5,8 +5,7 @@ let inventory = [
     categories: ["new arrivals"],
     name: "Epson EcoTank L3250 A4 Wi-Fi All-in-One Ink Tank Printer",
     price: "30,500",
-    image:
-      "https://o.remove.bg/downloads/6750d150-b38c-4824-b1a4-1ae03f4984d8/3-removebg-preview.png",
+    image: "/products/1.png",
     description:
       "The multi-functional EcoTank L3250 is designed to improve business cost savings and print productivity. Expect a high print yield of up to 4,500 pages for black-and-white, and 7,500 pages for colour. You can even print borderless photos up to 4R size. The integrated ink tanks and designated nozzles ensure spill-free and error-free refilling. The EcoTank L3250 delivers convenient wireless connectivity, enabling direct printing from smart devices. You can download the Epson Smart Panel app to your mobile device and easily manage your printing functions and printer setup, making this especially useful for non-panel printers. Make the smart business move with the right print solution today.",
     brand: "Jason Bourne",
@@ -16,8 +15,7 @@ let inventory = [
     categories: ["printers"],
     name: "XPrinter 80mm POS Receipt Printer, Auto Cutter USB",
     price: "9,500",
-    image:
-      "https://o.remove.bg/downloads/e7ff408c-1f63-4c26-ad15-d1fb9fc7139c/1-removebg-preview.png",
+    image: "/products/2.png",
     description:
       "Stay a while. The Timber charme chocolat sofa is set atop an oak trim and flaunts fluffy leather back and seat cushions. Over time, this brown leather sofa’s full-aniline upholstery will develop a worn-in vintage look. Snuggle up with your cutie (animal or human) and dive into a bowl of popcorn. This sofa is really hard to leave. Natural color variations, wrinkles and creases are part of the unique characteristics of this leather. It will develop a relaxed vintage look with regular use.",
     brand: "Jason Bourne",
@@ -27,8 +25,7 @@ let inventory = [
     categories: ["new arrivals", "printers"],
     name: "Canon Pixma MG2540s",
     price: "14,800",
-    image:
-      "https://o.remove.bg/downloads/024b36bd-f550-428e-9029-5880276ec0b7/PIXMA_MG2540S_Default_tcm13-1435333-removebg-preview.png",
+    image: "/products/epson.png",
     description:
       "Using the optional high-capacity Canon XL ink cartridges, you can save as much as 30% on the cost per page compared to their standard equivalents. Get more pages per cartridge and go longer between cartridge replacements; the Canon PIXMA MG2540S won’t cost the earth to run.",
     brand: "Jason Bourne",

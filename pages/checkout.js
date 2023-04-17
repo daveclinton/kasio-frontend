@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import Head from 'next/head'
+import { useState } from "react"
+import Head from "next/head"
 import { SiteContext, ContextProviderComponent } from "../context/mainContext"
 import DENOMINATION from "../utils/currencyProvider"
 import { FaLongArrowAltLeft } from "react-icons/fa"
@@ -23,7 +23,7 @@ function CheckoutWithContext(props) {
   return (
     <ContextProviderComponent>
       <SiteContext.Consumer>
-        {context => (
+        {(context) => (
           <Elements stripe={stripePromise}>
             <Checkout {...props} context={context} />
           </Elements>
@@ -63,12 +63,12 @@ const Checkout = ({ context }) => {
   const stripe = useStripe()
   const elements = useElements()
 
-  const onChange = e => {
+  const onChange = (e) => {
     setErrorMessage(null)
     setInput({ ...input, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     const { name, email, street, city, postal_code, state } = input
     const { total, clearCart } = context
@@ -129,9 +129,13 @@ const Checkout = ({ context }) => {
   return (
     <div className="flex flex-col items-center pb-10">
       <Head>
-        <title>Jamstack ECommerce - Checkout</title>
+        <title>Kasio ECommerce - Checkout</title>
         <meta name="description" content={`Check out`} />
-        <meta property="og:title" content="Jamstack ECommerce - Checkpit" key="title" />
+        <meta
+          property="og:title"
+          content="Kasio ECommerce - Checkpit"
+          key="title"
+        />
       </Head>
       <div
         className="
@@ -165,9 +169,7 @@ const Checkout = ({ context }) => {
                         src={item.image}
                         alt={item.name}
                       />
-                      <p className="m-0 pl-10 text-gray-600">
-                        {item.name}
-                      </p>
+                      <p className="m-0 pl-10 text-gray-600">{item.name}</p>
                       <div className="flex flex-1 justify-end">
                         <p className="m-0 pl-10 text-gray-900 font-semibold">
                           {DENOMINATION + item.price}
@@ -241,9 +243,7 @@ const Checkout = ({ context }) => {
                 </div>
                 <div className="pl-4 flex flex-1 my-2">
                   <p className="text-sm pr-10">Shipping</p>
-                  <p className="w-38 flex justify-end">
-                    FREE SHIPPING
-                  </p>
+                  <p className="w-38 flex justify-end">FREE SHIPPING</p>
                 </div>
                 <div className="md:ml-4 pl-2 flex flex-1 bg-gray-200 pr-4 pb-1 pt-2 mt-2">
                   <p className="text-sm pr-10">Total</p>
