@@ -1,20 +1,24 @@
-import '../styles/globals.css'
-import Layout from '../layouts/layout'
-import fetchCategories from '../utils/categoryProvider'
+import "../styles/globals.css"
+import Layout from "../layouts/layout"
+import { useEffect, useState } from "react"
+import fetchCategories from "../utils/categoryProvider"
 
-function Ecommerce({ Component, pageProps, categories }) {
+const Ecommerce = ({ Component, pageProps }) => {
+  const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+    const fetchCategoriesAsync = async () => {
+      const categories = await fetchCategories()
+      setCategories(categories)
+    }
+    fetchCategoriesAsync()
+  }, [])
+
   return (
     <Layout categories={categories}>
       <Component {...pageProps} />
     </Layout>
   )
-}
-
-Ecommerce.getInitialProps = async () => {
-  const categories = await fetchCategories()
-  return {
-    categories
-  }
 }
 
 export default Ecommerce
