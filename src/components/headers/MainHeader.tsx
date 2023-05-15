@@ -11,13 +11,14 @@ const MainHeader: React.FC = () => {
       color="#d7d7d7"
       w="100%"
       alignItems="center"
-      fontSize="14px"
+      fontSize="12px"
       h="32px"
       justify="center"
     >
       <Flex
-        maxW="1400px"
+        maxW="1000px"
         w="100%"
+        p="20px"
         flexWrap="wrap"
         align="center"
         justify="space-between"
