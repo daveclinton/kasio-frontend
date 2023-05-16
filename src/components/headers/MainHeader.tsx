@@ -30,10 +30,10 @@ const MainHeader: React.FC = () => {
           justifyContent="flex-start"
         >
           <Flex align="center" gap="5px">
-            <Text>Customer Care</Text>
+            <Text whiteSpace="nowrap">Customer Care</Text>
             <ChevronDownIcon />
           </Flex>
-          <Flex align="center" gap="5px">
+          <Flex align="center" gap="5px" display={{ base: "none", sm: "flex" }}>
             <PhoneIcon />
             <Text>0720000185</Text>
           </Flex>
