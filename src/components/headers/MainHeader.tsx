@@ -16,7 +16,7 @@ const MainHeader: React.FC = () => {
       justify="center"
     >
       <Flex
-        maxW="1000px"
+        maxW={{ base: "100%", md: "704px", lg: "936px" }}
         w="100%"
         p="20px"
         flexWrap="wrap"
