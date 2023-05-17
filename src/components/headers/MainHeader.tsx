@@ -33,6 +33,7 @@ const MainHeader: React.FC = () => {
             <Text whiteSpace="nowrap">Customer Care</Text>
             <ChevronDownIcon />
           </Flex>
+
           <Flex align="center" gap="5px" display={{ base: "none", sm: "flex" }}>
             <PhoneIcon />
             <Text>0720000185</Text>
