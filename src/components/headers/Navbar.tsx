@@ -52,6 +52,7 @@ const Navbar: React.FC = () => {
           </Flex>
           <Input
             maxW="50%"
+            position="static"
             bg="#fff"
             placeholder="Search for products, shops and categories"
           />
@@ -87,6 +88,7 @@ const Navbar: React.FC = () => {
             </Flex>
           </Flex>
           <Input
+            position="static"
             bg="#fff"
             placeholder="Search for products, shops and categories"
           />
