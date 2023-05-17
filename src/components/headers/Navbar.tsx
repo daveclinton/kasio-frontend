@@ -1,19 +1,19 @@
 import * as React from "react";
-import { Flex, Heading, Link } from "@chakra-ui/layout";
+import { Flex, Heading, Link, Divider } from "@chakra-ui/layout";
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/menu";
-import { ChevronDownIcon, Icon, HamburgerIcon } from "@chakra-ui/icons";
 import {
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerHeader,
-  DrawerBody,
-  DrawerCloseButton,
-} from "@chakra-ui/modal";
+  ChevronDownIcon,
+  Icon,
+  HamburgerIcon,
+  CloseIcon,
+} from "@chakra-ui/icons";
+import { Drawer, DrawerContent, DrawerBody } from "@chakra-ui/modal";
 import { Button, IconButton } from "@chakra-ui/button";
 import { Avatar } from "@chakra-ui/avatar";
 import { Input } from "@chakra-ui/input";
 import { GiShoppingCart } from "react-icons/gi";
+import { TbDiscount2 } from "react-icons/tb";
+import { MdOutlineShoppingCart } from "react-icons/md";
 import { useDisclosure, useMediaQuery } from "@chakra-ui/react";
 
 const Navbar: React.FC = () => {
@@ -93,7 +93,13 @@ const Navbar: React.FC = () => {
                   variant="unstyled"
                   aria-label="Search database"
                   onClick={onOpen}
-                  icon={<HamburgerIcon color="#e07e1b" boxSize="40px" />}
+                  icon={
+                    isOpen ? (
+                      <CloseIcon color="primaryYellow" boxSize="30px" />
+                    ) : (
+                      <HamburgerIcon color="primaryYellow" boxSize="40px" />
+                    )
+                  }
                 />
 
                 <Heading fontSize="20px">Kasio</Heading>
@@ -110,15 +116,46 @@ const Navbar: React.FC = () => {
             />
           </Flex>
           <Drawer
+            size="md"
             placement="left"
             isFullHeight={false}
             onClose={onClose}
             isOpen={isOpen}
+            variant="primary"
           >
-            <DrawerOverlay />
             <DrawerContent>
-              <DrawerCloseButton left={0} />
-              <DrawerHeader borderBottomWidth="1px">Basic Drawer</DrawerHeader>
+              <Flex
+                h="96px"
+                justify="space-evenly"
+                align="center"
+                borderBottomWidth="2px"
+              >
+                <Flex justify="center" align="center" flexDir="column">
+                  <IconButton
+                    boxSize="40px"
+                    variant="unstyled"
+                    cursor="pointer"
+                    aria-label=""
+                    as={TbDiscount2}
+                  />
+                  <Link _hover={{ textDecor: "none", color: "primaryYellow" }}>
+                    Deals & Promos
+                  </Link>
+                </Flex>
+                <Divider orientation="vertical" w="2px" />
+                <Flex justify="center" align="center" flexDir="column">
+                  <IconButton
+                    boxSize="40px"
+                    variant="unstyled"
+                    cursor="pointer"
+                    aria-label=""
+                    as={MdOutlineShoppingCart}
+                  />
+                  <Link _hover={{ textDecor: "none", color: "primaryYellow" }}>
+                    Open a Shop?
+                  </Link>
+                </Flex>
+              </Flex>
               <DrawerBody>
                 <p>Some contents...</p>
                 <p>Some contents...</p>
