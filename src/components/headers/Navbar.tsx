@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
           justify="space-between"
           gap="20px"
         >
-          <Flex>
+          <Flex gap="20px">
             <Heading fontSize="30px" fontStyle="italic">
               Kasio
             </Heading>
@@ -36,6 +36,7 @@ const Navbar: React.FC = () => {
               <MenuButton
                 as={Button}
                 bg="none"
+                border="2px solid #e07e1b"
                 _hover={{ bg: "none" }}
                 _active={{ bg: "none" }}
                 rightIcon={<ChevronDownIcon />}
@@ -77,10 +78,8 @@ const Navbar: React.FC = () => {
         >
           <Flex w="100%" justify="space-between">
             <Flex justify="space-between" gap="20px" align="center">
-              <HamburgerIcon />
-              <Heading fontSize="20px" fontStyle="italic">
-                Kasio
-              </Heading>
+              <HamburgerIcon color="#e07e1b" boxSize="40px" />
+              <Heading fontSize="20px">Kasio</Heading>
             </Flex>
             <Flex justify="space-between" gap="40px" align="center">
               <Avatar boxSize="30px" />
