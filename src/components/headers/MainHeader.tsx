@@ -2,9 +2,9 @@ import * as React from "react";
 import { Flex, Text, Box } from "@chakra-ui/layout";
 import { IconButton } from "@chakra-ui/button";
 import { ChevronDownIcon, PhoneIcon } from "@chakra-ui/icons";
+import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/menu";
 
 const MainHeader: React.FC = () => {
-  const [isCustomerMenu, setIsCustomerMenu] = React.useState(false);
   return (
     <>
       <Flex
@@ -34,35 +34,19 @@ const MainHeader: React.FC = () => {
           >
             <Flex align="center" gap="5px">
               <Text whiteSpace="nowrap">Customer Care</Text>
-              <Box>
-                <IconButton
-                  variant="unstyled"
-                  aria-label="Search database"
+              <Menu>
+                <MenuButton
+                  as={IconButton}
+                  aria-label="Options"
                   icon={<ChevronDownIcon />}
-                  onClick={() => {
-                    setIsCustomerMenu(!isCustomerMenu);
-                  }}
+                  variant="unstyled"
                 />
-
-                {isCustomerMenu && (
-                  <Box
-                    pos="fixed"
-                    bg="#fff"
-                    borderRadius="4px"
-                    boxShadow="0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12)"
-                    zIndex={1000}
-                    minW="112px"
-                    maxW="240px"
-                    minH="64px"
-                  >
-                    <Box m="20px">
-                      <Text m="20px 0px 20px 0px">Track Order</Text>
-                      <Text>Return Policy</Text>
-                      <Text m="20px 0px 20px 0px">LIve Chat</Text>
-                    </Box>
-                  </Box>
-                )}
-              </Box>
+                <MenuList color="black">
+                  <MenuItem>Track Order</MenuItem>
+                  <MenuItem>Return Policy</MenuItem>
+                  <MenuItem>Live Chat</MenuItem>
+                </MenuList>
+              </Menu>
             </Flex>
 
             <Flex
