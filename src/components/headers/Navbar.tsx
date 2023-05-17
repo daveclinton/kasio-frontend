@@ -3,9 +3,10 @@ import { Flex, Heading, Link, Divider } from "@chakra-ui/layout";
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/menu";
 import {
   ChevronDownIcon,
-  Icon,
   HamburgerIcon,
   CloseIcon,
+  MinusIcon,
+  AddIcon,
 } from "@chakra-ui/icons";
 import { Drawer, DrawerContent, DrawerBody } from "@chakra-ui/modal";
 import { Button, IconButton } from "@chakra-ui/button";
@@ -14,11 +15,66 @@ import { Input } from "@chakra-ui/input";
 import { GiShoppingCart } from "react-icons/gi";
 import { TbDiscount2 } from "react-icons/tb";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { useDisclosure, useMediaQuery } from "@chakra-ui/react";
+import { TbCloudComputing } from "react-icons/tb";
+import { RiComputerLine } from "react-icons/ri";
+import { BsPrinterFill, BsFillUsbDriveFill } from "react-icons/bs";
+import { GiVideoCamera } from "react-icons/gi";
+import { RiFridgeFill } from "react-icons/ri";
+import { GoTelescope } from "react-icons/go";
+import { AiOutlinePoweroff } from "react-icons/ai";
+import { useDisclosure, useMediaQuery, Icon } from "@chakra-ui/react";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+} from "@chakra-ui/accordion";
 
 const Navbar: React.FC = () => {
   const [isLargerThanMd] = useMediaQuery("(min-width: 740px)");
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const categories = [
+    {
+      name: "Computing",
+      icon: RiComputerLine,
+      link: "/computing",
+    },
+    {
+      name: "Networking",
+      icon: TbCloudComputing,
+      link: "/networking",
+    },
+    {
+      name: "Printers & Office",
+      icon: BsPrinterFill,
+      link: "/networking",
+    },
+    {
+      name: "Camera & Surveillance",
+      icon: GiVideoCamera,
+      link: "/networking",
+    },
+    {
+      name: "Home Appliances",
+      icon: RiFridgeFill,
+      link: "/networking",
+    },
+    {
+      name: "Storage",
+      icon: BsFillUsbDriveFill,
+      link: "/networking",
+    },
+    {
+      name: "Power",
+      icon: AiOutlinePoweroff,
+      link: "/networking",
+    },
+    {
+      name: "Telecom",
+      icon: GoTelescope,
+      link: "/networking",
+    },
+  ];
 
   return (
     <Flex
@@ -157,9 +213,56 @@ const Navbar: React.FC = () => {
                 </Flex>
               </Flex>
               <DrawerBody>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+                <Accordion allowMultiple>
+                  {categories.map(({ name, icon }, accordionData) => (
+                    <AccordionItem key={accordionData} border="none">
+                      {({ isExpanded }) => (
+                        <>
+                          <AccordionButton>
+                            <Flex
+                              as="span"
+                              align="center"
+                              gap="20px"
+                              flex="1"
+                              textAlign="left"
+                            >
+                              <Icon
+                                as={icon}
+                                color="primaryYellow"
+                                boxSize="20px"
+                              />
+                              <Link
+                                _hover={{
+                                  textDecoration: "none",
+                                  color: "primaryYellow",
+                                }}
+                                _active={{
+                                  textDecoration: "none",
+                                  color: "primaryYellow",
+                                }}
+                              >
+                                {name}
+                              </Link>
+                            </Flex>
+                            {isExpanded ? (
+                              <MinusIcon fontSize="12px" />
+                            ) : (
+                              <AddIcon fontSize="12px" />
+                            )}
+                          </AccordionButton>
+
+                          <AccordionPanel pb={4}>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip
+                            ex ea commodo consequat.
+                          </AccordionPanel>
+                        </>
+                      )}
+                    </AccordionItem>
+                  ))}
+                </Accordion>
               </DrawerBody>
             </DrawerContent>
           </Drawer>

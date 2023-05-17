@@ -8,9 +8,7 @@ const theme = extendTheme({
   components: {
     Drawer: {
       parts: ["dialog", "header", "body"],
-      baseStyle: {
-        dialog: { top: "120px" },
-      },
+
       variants: {
         primary: {
           dialog: { top: "100px !important", maxH: "90vh" },
