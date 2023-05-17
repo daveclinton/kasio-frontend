@@ -38,11 +38,87 @@ const Navbar: React.FC = () => {
       name: "Computing",
       icon: RiComputerLine,
       link: "/computing",
+      subcategories: [
+        {
+          name: "Desktops",
+          link: "/computing/desktop",
+        },
+        {
+          name: "Monitors",
+          link: "/computing/laptops",
+        },
+        {
+          name: "Laptops",
+          link: "/computing/laptops",
+        },
+        {
+          name: "Servers",
+          link: "/computing/laptops",
+        },
+        {
+          name: "Computer Accesories",
+          link: "/computing/laptops",
+        },
+        {
+          name: "Point of Scale",
+          link: "/computing/laptops",
+        },
+        {
+          name: "Software",
+          link: "/computing/laptops",
+        },
+        {
+          name: "Projectors",
+          link: "/computing/laptops",
+        },
+        {
+          name: "Projector Screens",
+          link: "/computing/laptops",
+        },
+        {
+          name: "Laptop Batteries",
+          link: "/computing/laptops",
+        },
+        {
+          name: "Laptop Charger / Adapter",
+          link: "/computing/laptops",
+        },
+      ],
     },
     {
       name: "Networking",
       icon: TbCloudComputing,
       link: "/networking",
+      subcategories: [
+        {
+          name: "Routers",
+          link: "/computing/desktop",
+        },
+        {
+          name: "Switches",
+          link: "/computing/desktop",
+        },
+        {
+          name: "Access Points",
+          link: "/computing/desktop",
+        },
+        {
+          name: "Repeaters",
+          link: "/computing/desktop",
+        },
+        {
+          name: "Rack Cabinets",
+          link: "/computing/desktop",
+        },
+        {
+          name: "Networking Accesories",
+          link: "/computing/desktop",
+        },
+        {
+          name: "Networking Peripherals",
+          link: "/computing/desktop",
+        },
+      ],
     },
     {
       name: "Printers & Office",
@@ -213,55 +289,82 @@ const Navbar: React.FC = () => {
                 </Flex>
               </Flex>
               <DrawerBody>
-                <Accordion allowMultiple>
-                  {categories.map(({ name, icon }, accordionData) => (
-                    <AccordionItem key={accordionData} border="none">
-                      {({ isExpanded }) => (
-                        <>
-                          <AccordionButton>
-                            <Flex
-                              as="span"
-                              align="center"
-                              gap="20px"
-                              flex="1"
-                              textAlign="left"
-                            >
-                              <Icon
-                                as={icon}
-                                color="primaryYellow"
-                                boxSize="20px"
-                              />
-                              <Link
-                                _hover={{
-                                  textDecoration: "none",
-                                  color: "primaryYellow",
-                                }}
-                                _active={{
-                                  textDecoration: "none",
-                                  color: "primaryYellow",
-                                }}
+                <Accordion allowToggle>
+                  {categories.map(
+                    ({ name, icon, subcategories }, accordionData) => (
+                      <AccordionItem key={accordionData} border="none">
+                        {({ isExpanded }) => (
+                          <>
+                            <AccordionButton>
+                              <Flex
+                                as="span"
+                                align="center"
+                                gap="20px"
+                                flex="1"
+                                textAlign="left"
                               >
-                                {name}
-                              </Link>
-                            </Flex>
-                            {isExpanded ? (
-                              <MinusIcon fontSize="12px" />
+                                <Icon
+                                  as={icon}
+                                  color="primaryYellow"
+                                  boxSize="20px"
+                                />
+                                <Link
+                                  _hover={{
+                                    textDecoration: "none",
+                                    color: "primaryYellow",
+                                  }}
+                                  _active={{
+                                    textDecoration: "none",
+                                    color: "primaryYellow",
+                                  }}
+                                >
+                                  {name}
+                                </Link>
+                              </Flex>
+                              {isExpanded ? (
+                                <MinusIcon fontSize="12px" />
+                              ) : (
+                                <AddIcon fontSize="12px" />
+                              )}
+                            </AccordionButton>
+                            {subcategories ? (
+                              <AccordionPanel
+                                display="flex"
+                                ml="20px"
+                                flexDir="column"
+                              >
+                                {subcategories.map((subcategory, subIndex) => (
+                                  <Link
+                                    key={subIndex}
+                                    ml={8}
+                                    py={1}
+                                    _hover={{
+                                      textDecoration: "none",
+                                      color: "primaryYellow",
+                                    }}
+                                    _active={{
+                                      textDecoration: "none",
+                                      color: "primaryYellow",
+                                    }}
+                                    href={subcategory.link}
+                                  >
+                                    {subcategory.name}
+                                  </Link>
+                                ))}
+                              </AccordionPanel>
                             ) : (
-                              <AddIcon fontSize="12px" />
+                              <AccordionPanel
+                                display="flex"
+                                justifyContent="center"
+                              >
+                                Items Out Of Stock
+                              </AccordionPanel>
                             )}
-                          </AccordionButton>
-
-                          <AccordionPanel pb={4}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat.
-                          </AccordionPanel>
-                        </>
-                      )}
-                    </AccordionItem>
-                  ))}
+                          </>
+                        )}
+                      </AccordionItem>
+                    )
+                  )}
                 </Accordion>
               </DrawerBody>
             </DrawerContent>
