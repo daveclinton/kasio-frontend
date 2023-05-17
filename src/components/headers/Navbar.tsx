@@ -2,14 +2,24 @@ import * as React from "react";
 import { Flex, Heading, Link } from "@chakra-ui/layout";
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/menu";
 import { ChevronDownIcon, Icon, HamburgerIcon } from "@chakra-ui/icons";
-import { Button } from "@chakra-ui/button";
+import {
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerHeader,
+  DrawerBody,
+  DrawerCloseButton,
+} from "@chakra-ui/modal";
+import { Button, IconButton } from "@chakra-ui/button";
 import { Avatar } from "@chakra-ui/avatar";
 import { Input } from "@chakra-ui/input";
 import { GiShoppingCart } from "react-icons/gi";
-import { useMediaQuery } from "@chakra-ui/react";
+import { useDisclosure, useMediaQuery } from "@chakra-ui/react";
 
 const Navbar: React.FC = () => {
   const [isLargerThanMd] = useMediaQuery("(min-width: 740px)");
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Flex
       w="100%"
@@ -69,29 +79,54 @@ const Navbar: React.FC = () => {
           </Flex>
         </Flex>
       ) : (
-        <Flex
-          p="20px"
-          w="100%"
-          gap="20px"
-          justify="space-between"
-          flexDir="column"
-        >
-          <Flex w="100%" justify="space-between">
-            <Flex justify="space-between" gap="20px" align="center">
-              <HamburgerIcon color="#e07e1b" boxSize="40px" />
-              <Heading fontSize="20px">Kasio</Heading>
+        <>
+          <Flex
+            p="20px"
+            w="100%"
+            gap="20px"
+            justify="space-between"
+            flexDir="column"
+          >
+            <Flex w="100%" justify="space-between">
+              <Flex justify="space-between" gap="20px" align="center">
+                <IconButton
+                  variant="unstyled"
+                  aria-label="Search database"
+                  onClick={onOpen}
+                  icon={<HamburgerIcon color="#e07e1b" boxSize="40px" />}
+                />
+
+                <Heading fontSize="20px">Kasio</Heading>
+              </Flex>
+              <Flex justify="space-between" gap="40px" align="center">
+                <Avatar boxSize="30px" />
+                <Icon as={GiShoppingCart} boxSize="30px" />
+              </Flex>
             </Flex>
-            <Flex justify="space-between" gap="40px" align="center">
-              <Avatar boxSize="30px" />
-              <Icon as={GiShoppingCart} boxSize="30px" />
-            </Flex>
+            <Input
+              position="static"
+              bg="#fff"
+              placeholder="Search for products, shops and categories"
+            />
           </Flex>
-          <Input
-            position="static"
-            bg="#fff"
-            placeholder="Search for products, shops and categories"
-          />
-        </Flex>
+          <Drawer
+            placement="left"
+            isFullHeight={false}
+            onClose={onClose}
+            isOpen={isOpen}
+          >
+            <DrawerOverlay />
+            <DrawerContent>
+              <DrawerCloseButton left={0} />
+              <DrawerHeader borderBottomWidth="1px">Basic Drawer</DrawerHeader>
+              <DrawerBody>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+              </DrawerBody>
+            </DrawerContent>
+          </Drawer>
+        </>
       )}
     </Flex>
   );
