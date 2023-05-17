@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Flex, Text, Box } from "@chakra-ui/layout";
+import { Flex, Text, Link } from "@chakra-ui/layout";
 import { IconButton } from "@chakra-ui/button";
 import { ChevronDownIcon, PhoneIcon } from "@chakra-ui/icons";
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/menu";
@@ -19,7 +19,7 @@ const MainHeader: React.FC = () => {
         justify="center"
       >
         <Flex
-          maxW={{ base: "100%", md: "704px", lg: "936px" }}
+          maxW={{ base: "100%", md: "704px", lg: "1240px" }}
           w="100%"
           p="20px"
           flexWrap="wrap"
@@ -34,7 +34,7 @@ const MainHeader: React.FC = () => {
           >
             <Flex align="center" gap="5px">
               <Text whiteSpace="nowrap">Customer Care</Text>
-              <Menu>
+              <Menu placement="top" computePositionOnMount={true}>
                 <MenuButton
                   as={IconButton}
                   aria-label="Options"
@@ -58,7 +58,9 @@ const MainHeader: React.FC = () => {
               <Text>0720000185</Text>
             </Flex>
           </Flex>
-          <Text>Sell with Kasio</Text>
+          <Link _hover={{ textDecor: "none", color: "#f68b1e" }}>
+            Sell with Kasio
+          </Link>
         </Flex>
       </Flex>
     </>
