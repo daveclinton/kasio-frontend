@@ -11,7 +11,6 @@ import {
   AccordionButton,
   AccordionPanel,
 } from "@chakra-ui/accordion";
-
 import { categories } from "../../utils/ProductCategories";
 
 type DesktopMenuProps = {
