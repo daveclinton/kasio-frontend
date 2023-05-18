@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Flex, Heading, Link } from "@chakra-ui/layout";
-import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/menu";
-import { ChevronDownIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { Button, IconButton } from "@chakra-ui/button";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { IconButton } from "@chakra-ui/button";
 import { Avatar } from "@chakra-ui/avatar";
 import { Input } from "@chakra-ui/input";
 import { GiShoppingCart } from "react-icons/gi";
 import { useDisclosure, useMediaQuery, Icon } from "@chakra-ui/react";
 import MobileMenu from "./MobileMenu";
+import DesktopMenu from "./DesktopMenu";
 
 const Navbar: React.FC = () => {
   const [isLargerThanMd] = useMediaQuery("(min-width: 740px)");
@@ -35,24 +35,7 @@ const Navbar: React.FC = () => {
             <Heading fontSize="30px" fontStyle="italic">
               Kasio
             </Heading>
-            <Menu>
-              <MenuButton
-                as={Button}
-                bg="none"
-                border="2px solid #e07e1b"
-                _hover={{ bg: "none" }}
-                _active={{ bg: "none" }}
-                rightIcon={<ChevronDownIcon />}
-              >
-                Categories
-              </MenuButton>
-
-              <MenuList color="black">
-                <MenuItem>Track Order</MenuItem>
-                <MenuItem>Return Policy</MenuItem>
-                <MenuItem>Live Chat</MenuItem>
-              </MenuList>
-            </Menu>
+            <DesktopMenu />
           </Flex>
           <Input
             maxW="50%"
