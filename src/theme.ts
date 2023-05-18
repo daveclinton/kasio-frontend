@@ -14,6 +14,14 @@ const theme = extendTheme({
           dialog: { top: "100px !important", maxH: "90vh" },
           body: { top: "120px" },
         },
+        secondary: {
+          dialog: {
+            top: "100px !important",
+            maxH: "50vh",
+            left: "150px !important",
+          },
+          body: { top: "120px" },
+        },
       },
     },
   },

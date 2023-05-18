@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Flex, Heading, Link } from "@chakra-ui/layout";
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { IconButton } from "@chakra-ui/button";
+import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import { IconButton, Button } from "@chakra-ui/button";
 import { Avatar } from "@chakra-ui/avatar";
 import { Input } from "@chakra-ui/input";
 import { GiShoppingCart } from "react-icons/gi";
@@ -12,6 +12,7 @@ import DesktopMenu from "./DesktopMenu";
 const Navbar: React.FC = () => {
   const [isLargerThanMd] = useMediaQuery("(min-width: 740px)");
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isDesktopMenu, setIsDesktopMenu] = React.useState(false);
 
   return (
     <Flex
@@ -35,7 +36,21 @@ const Navbar: React.FC = () => {
             <Heading fontSize="30px" fontStyle="italic">
               Kasio
             </Heading>
-            <DesktopMenu />
+            <Button
+              cursor="pointer"
+              onMouseOver={() => setIsDesktopMenu(true)}
+              bg="none"
+              border="2px solid #e07e1b"
+              _hover={{ bg: "none" }}
+              _active={{ bg: "none" }}
+              rightIcon={<ChevronDownIcon />}
+            >
+              Categories
+            </Button>
+            <DesktopMenu
+              isOpen={isDesktopMenu}
+              onClose={() => setIsDesktopMenu(false)}
+            />
           </Flex>
           <Input
             maxW="50%"
