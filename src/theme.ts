@@ -16,7 +16,7 @@ const theme = extendTheme({
         secondary: {
           dialog: {
             top: "100px !important",
-            maxH: "70vh",
+            maxH: "60vh",
             left: "150px !important",
           },
           body: { top: "120px" },

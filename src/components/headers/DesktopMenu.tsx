@@ -68,7 +68,11 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ isOpen, onClose }) => {
               <AccordionItem key={accordionData} border="none">
                 {({ isExpanded }) => (
                   <>
-                    <AccordionButton>
+                    <AccordionButton
+                      _focusVisible={{
+                        boxShadow: "transparent !important",
+                      }}
+                    >
                       <Flex
                         as="span"
                         align="center"
