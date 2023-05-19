@@ -1,7 +1,8 @@
 import * as React from "react";
-import { Flex, IconButton, Text } from "@chakra-ui/react";
+import { Flex, Button } from "@chakra-ui/react";
 import { ChevronDownIcon, Icon } from "@chakra-ui/icons";
 import { categories } from "../../utils/ProductCategories";
+import { Menu, MenuList, MenuItem, MenuButton } from "@chakra-ui/menu";
 
 const LowerMenu: React.FC = () => {
   return (
@@ -18,12 +19,22 @@ const LowerMenu: React.FC = () => {
       {categories.map(({ name, icon }, menuData) => (
         <Flex align="center" key={menuData} gap="10px">
           <Icon as={icon} color="primaryYellow" boxSize="20px" />
-          <Text>{name}</Text>
-          <IconButton
-            variant="unstyled"
-            aria-label=""
-            icon={<ChevronDownIcon ml="10px" />}
-          />
+          <Menu>
+            <MenuButton
+              variant="unstyled"
+              as={Button}
+              rightIcon={<ChevronDownIcon />}
+            >
+              {name}
+            </MenuButton>
+            <MenuList>
+              <MenuItem>Download</MenuItem>
+              <MenuItem>Create a Copy</MenuItem>
+              <MenuItem>Mark as Draft</MenuItem>
+              <MenuItem>Delete</MenuItem>
+              <MenuItem>Attend a Workshop</MenuItem>
+            </MenuList>
+          </Menu>
         </Flex>
       ))}
     </Flex>
