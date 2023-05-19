@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Flex, Text } from "@chakra-ui/react";
 import { ChevronDownIcon, Icon } from "@chakra-ui/icons";
-import { TbCloudComputing } from "react-icons/tb";
+import { categories } from "../../utils/ProductCategories";
 
 const LowerMenu: React.FC = () => {
   return (
@@ -13,12 +13,15 @@ const LowerMenu: React.FC = () => {
       minH="72px"
       color="white"
       bg="#231f20"
+      gap="10px"
     >
-      <Flex>
-        <Icon as={TbCloudComputing} color="primaryYellow" boxSize="20px" />
-        <Text>Computers</Text>
-        <ChevronDownIcon ml="10px" />
-      </Flex>
+      {categories.map(({ name, icon }, menuData) => (
+        <Flex align="center" key={menuData} gap="10px">
+          <Icon as={icon} color="primaryYellow" boxSize="20px" />
+          <Text>{name}</Text>
+          <ChevronDownIcon ml="10px" />
+        </Flex>
+      ))}
     </Flex>
   );
 };
