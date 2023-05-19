@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Flex, Button, Text, Link } from "@chakra-ui/react";
+import { Flex, Button, Text } from "@chakra-ui/react";
 import { ChevronDownIcon, Icon } from "@chakra-ui/icons";
 import { categories } from "../../utils/ProductCategories";
-import { Menu, MenuList, MenuButton } from "@chakra-ui/menu";
+import { Menu, MenuList, MenuButton, MenuItem } from "@chakra-ui/menu";
 
 const LowerMenu: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ const LowerMenu: React.FC = () => {
       {categories.map(({ name, icon, subcategories }, menuData) => (
         <Flex align="center" key={menuData} gap="10px">
           <Icon as={icon} color="primaryYellow" boxSize="20px" />
-          <Menu>
+          <Menu closeOnSelect={true}>
             <MenuButton
               variant="unstyled"
               as={Button}
@@ -30,21 +30,25 @@ const LowerMenu: React.FC = () => {
             {subcategories ? (
               <MenuList display="flex" flexDir="column" p="10px 30px 30px 30px">
                 {subcategories.map((category, categoryData) => (
-                  <Link
+                  <MenuItem
+                    as="a"
                     color="black"
                     mt="10px"
+                    cursor="pointer"
                     _hover={{
+                      bg: "none",
                       textDecoration: "none",
                       color: "primaryYellow",
                     }}
                     _active={{
+                      bg: "none",
                       textDecoration: "none",
                       color: "primaryYellow",
                     }}
                     key={categoryData}
                   >
                     {category.name}
-                  </Link>
+                  </MenuItem>
                 ))}
               </MenuList>
             ) : (
