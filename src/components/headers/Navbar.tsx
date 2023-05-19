@@ -33,9 +33,7 @@ const Navbar: React.FC = () => {
           gap="20px"
         >
           <Flex gap="20px">
-            <Heading fontSize="30px" fontStyle="italic">
-              Kasio
-            </Heading>
+            <Heading fontSize="30px">Kasio</Heading>
             <Button
               cursor="pointer"
               onMouseOver={() => setIsDesktopMenu(true)}
