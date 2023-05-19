@@ -48,8 +48,8 @@ const LowerMenu: React.FC = () => {
                 ))}
               </MenuList>
             ) : (
-              <MenuList display="flex" flexDir="column" p="10px 30px 30px 30px">
-                <Text color="black">Out of stock</Text>
+              <MenuList display="flex" flexDir="column" p="30px">
+                <Text color="#000000">Out of stock</Text>
               </MenuList>
             )}
           </Menu>
