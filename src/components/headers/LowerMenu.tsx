@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Flex, Button } from "@chakra-ui/react";
+import { Flex, Button, Text, Link } from "@chakra-ui/react";
 import { ChevronDownIcon, Icon } from "@chakra-ui/icons";
 import { categories } from "../../utils/ProductCategories";
-import { Menu, MenuList, MenuItem, MenuButton } from "@chakra-ui/menu";
+import { Menu, MenuList, MenuButton } from "@chakra-ui/menu";
 
 const LowerMenu: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ const LowerMenu: React.FC = () => {
       bg="#231f20"
       gap="20px"
     >
-      {categories.map(({ name, icon }, menuData) => (
+      {categories.map(({ name, icon, subcategories }, menuData) => (
         <Flex align="center" key={menuData} gap="10px">
           <Icon as={icon} color="primaryYellow" boxSize="20px" />
           <Menu>
@@ -27,13 +27,31 @@ const LowerMenu: React.FC = () => {
             >
               {name}
             </MenuButton>
-            <MenuList>
-              <MenuItem>Download</MenuItem>
-              <MenuItem>Create a Copy</MenuItem>
-              <MenuItem>Mark as Draft</MenuItem>
-              <MenuItem>Delete</MenuItem>
-              <MenuItem>Attend a Workshop</MenuItem>
-            </MenuList>
+            {subcategories ? (
+              <MenuList display="flex" flexDir="column" p="10px 30px 30px 30px">
+                {subcategories.map((category, categoryData) => (
+                  <Link
+                    color="black"
+                    mt="10px"
+                    _hover={{
+                      textDecoration: "none",
+                      color: "primaryYellow",
+                    }}
+                    _active={{
+                      textDecoration: "none",
+                      color: "primaryYellow",
+                    }}
+                    key={categoryData}
+                  >
+                    {category.name}
+                  </Link>
+                ))}
+              </MenuList>
+            ) : (
+              <MenuList display="flex" flexDir="column" p="10px 30px 30px 30px">
+                <Text color="black">Out of stock</Text>
+              </MenuList>
+            )}
           </Menu>
         </Flex>
       ))}
