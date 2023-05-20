@@ -17,6 +17,7 @@ const Navbar: React.FC = () => {
   return (
     <Flex
       w="100%"
+      pos="fixed"
       justify="center"
       align="center"
       minH="72px"

@@ -7,17 +7,20 @@ import { Menu, MenuList, MenuButton, MenuItem } from "@chakra-ui/menu";
 const LowerMenu: React.FC = () => {
   return (
     <Flex
-      display={{ base: "none", md: "flex" }}
+      display={{ base: "none", lg: "flex" }}
       w="100%"
+      top="100px"
+      pos="fixed"
       justify="center"
       align="center"
       minH="72px"
       color="white"
       bg="#231f20"
+      p="20px"
       gap="20px"
     >
       {categories.map(({ name, icon, subcategories }, menuData) => (
-        <Flex align="center" key={menuData} gap="10px">
+        <Flex maxW="1240px" align="center" key={menuData} gap="10px">
           <Icon as={icon} color="primaryYellow" boxSize="20px" />
           <Menu closeOnSelect={true}>
             <MenuButton

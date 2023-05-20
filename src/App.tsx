@@ -6,6 +6,7 @@ import Navbar from "./components/headers/Navbar";
 import LowerMenu from "./components/headers/LowerMenu";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import { Box } from "@chakra-ui/react";
 
 const App: React.FC = () => {
   return (
@@ -14,12 +15,14 @@ const App: React.FC = () => {
         <MainHeader />
         <Navbar />
         <LowerMenu />
-        <Routes>
-          <Route>
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-          </Route>
-        </Routes>
+        <Box mt="210px">
+          <Routes>
+            <Route>
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+            </Route>
+          </Routes>
+        </Box>
       </Flex>
     </Flex>
   );
