@@ -4,6 +4,9 @@ import { Button } from "@chakra-ui/button";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { Divider, Input, Link } from "@chakra-ui/react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 
 interface IFormInput {
   emailAdress: string;
@@ -12,7 +15,24 @@ interface IFormInput {
 
 const Login: React.FC = () => {
   const { register, handleSubmit } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  const navigate = useNavigate();
+
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+    try {
+      const { emailAdress, password } = data;
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        emailAdress,
+        password
+      );
+      const user = userCredential.user;
+      navigate("/");
+      console.log("Here", user);
+    } catch (error) {
+      // User creation failed, handle the error
+      console.log(error);
+    }
+  };
   return (
     <Flex w="100%" justify="center" gap="30px" align="center" mt="32px">
       <Flex
