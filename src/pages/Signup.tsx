@@ -31,7 +31,6 @@ const SignUp: React.FC = () => {
       navigate("/login");
       console.log("Here", user);
     } catch (error) {
-      // User creation failed, handle the error
       console.log(error);
     }
   };

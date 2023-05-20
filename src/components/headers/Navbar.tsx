@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Flex, Heading, Link } from "@chakra-ui/layout";
+import { Flex, Heading, Link, Text } from "@chakra-ui/layout";
 import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { IconButton, Button } from "@chakra-ui/button";
 import { Avatar } from "@chakra-ui/avatar";
@@ -8,7 +8,9 @@ import { GiShoppingCart } from "react-icons/gi";
 import { useDisclosure, useMediaQuery, Icon } from "@chakra-ui/react";
 import MobileMenu from "./MobileMenu";
 import DesktopMenu from "./DesktopMenu";
-import { useAppSelector } from "../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { auth } from "../../../firebase";
+import { setUser } from "../../store/auth/actions";
 
 const Navbar: React.FC = () => {
   const [isLargerThanMd] = useMediaQuery("(min-width: 740px)");
@@ -17,8 +19,32 @@ const Navbar: React.FC = () => {
   const { user }: { user: any } = useAppSelector(
     ({ authReducer }) => authReducer
   );
-  console.log(user);
+  const dispatch = useAppDispatch();
+
   const displayName = user?.displayName;
+
+  React.useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in
+        localStorage.setItem("authUser", JSON.stringify(user));
+      } else {
+        // User is signed out
+        localStorage.removeItem("authUser");
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  React.useEffect(() => {
+    const storedUser = localStorage.getItem("authUser");
+
+    if (storedUser) {
+      const parsedUser = JSON.parse(storedUser);
+      dispatch(setUser(parsedUser));
+    }
+  }, [dispatch]);
 
   return (
     <Flex
@@ -65,9 +91,14 @@ const Navbar: React.FC = () => {
           />
           <Flex justify="space-between" gap="30px">
             <Flex justify="space-between" align="center" gap="10px">
-              <Link href="/login" whiteSpace="nowrap">
-                Log In
-              </Link>
+              {user ? (
+                <Text>{`Welcome ${user?.displayName}`}</Text>
+              ) : (
+                <Link href="/login" whiteSpace="nowrap">
+                  Log In
+                </Link>
+              )}
+
               <Avatar boxSize="30px" name={user ? displayName : ""} />
             </Flex>
             <Flex justify="space-between" align="center" gap="10px">
