@@ -3,8 +3,17 @@ import { Flex, Box, Heading, Link } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { Divider, Input } from "@chakra-ui/react";
+import { useForm, SubmitHandler } from "react-hook-form";
+interface IFormInput {
+  firstName: string;
+  lastName: string;
+  emailAdress: string;
+  password: string;
+}
 
 const SignUp: React.FC = () => {
+  const { register, handleSubmit } = useForm<IFormInput>();
+  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
   return (
     <Flex w="100%" justify="center" gap="30px" align="center" mt="32px">
       <Box>
@@ -29,20 +38,28 @@ const SignUp: React.FC = () => {
         </Link>
       </Box>
       <Divider orientation="vertical" w="10px" color="red" />
-      <Flex flexDir="column" gap="20px" maxW="700px">
+      <Flex
+        as="form"
+        flexDir="column"
+        gap="20px"
+        maxW="700px"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <Heading fontSize="18px" fontWeight={700}>
           Create an Account
         </Heading>
-        <Input placeholder="FirstName" />
-        <Input placeholder="LastName" />
-        <Input placeholder="Email Address" />
-        <Input placeholder="Choose Password" />
-        <Input placeholder="Confirm Password" />
+
+        <Input placeholder="FirstName" {...register("firstName")} />
+        <Input placeholder="LastName" {...register("lastName")} />
+        <Input placeholder="Email Address" {...register("emailAdress")} />
+        <Input placeholder="Choose Password" {...register("password")} />
+        <Input placeholder="Confirm Password" {...register("password")} />
         <Button
           mt="20px"
           color="primaryYellow"
           bg="#fff"
           minW="243px"
+          type="submit"
           fontSize="16px"
           h="60px"
           borderRadius="4px"
