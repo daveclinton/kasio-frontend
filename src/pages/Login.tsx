@@ -7,6 +7,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../store/hooks";
+import { setUser } from "../store/auth/actions";
 
 interface IFormInput {
   emailAdress: string;
@@ -16,6 +18,7 @@ interface IFormInput {
 const Login: React.FC = () => {
   const { register, handleSubmit } = useForm<IFormInput>();
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     try {
@@ -27,7 +30,7 @@ const Login: React.FC = () => {
       );
       const user = userCredential.user;
       navigate("/");
-      console.log("Here", user);
+      dispatch(setUser(user));
     } catch (error) {
       // User creation failed, handle the error
       console.log(error);
