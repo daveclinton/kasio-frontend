@@ -8,11 +8,14 @@ import { GiShoppingCart } from "react-icons/gi";
 import { useDisclosure, useMediaQuery, Icon } from "@chakra-ui/react";
 import MobileMenu from "./MobileMenu";
 import DesktopMenu from "./DesktopMenu";
+import { useAppSelector } from "../../store/hooks";
 
 const Navbar: React.FC = () => {
   const [isLargerThanMd] = useMediaQuery("(min-width: 740px)");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isDesktopMenu, setIsDesktopMenu] = React.useState(false);
+  const { user } = useAppSelector(({ authReducer }) => authReducer);
+  console.log(user);
 
   return (
     <Flex
