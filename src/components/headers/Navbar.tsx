@@ -14,8 +14,11 @@ const Navbar: React.FC = () => {
   const [isLargerThanMd] = useMediaQuery("(min-width: 740px)");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isDesktopMenu, setIsDesktopMenu] = React.useState(false);
-  const { user } = useAppSelector(({ authReducer }) => authReducer);
+  const { user }: { user: any } = useAppSelector(
+    ({ authReducer }) => authReducer
+  );
   console.log(user);
+  const displayName = user?.displayName;
 
   return (
     <Flex
@@ -65,7 +68,7 @@ const Navbar: React.FC = () => {
               <Link href="/login" whiteSpace="nowrap">
                 Log In
               </Link>
-              <Avatar boxSize="30px" />
+              <Avatar boxSize="30px" name={user ? displayName : ""} />
             </Flex>
             <Flex justify="space-between" align="center" gap="10px">
               <Link>Cart</Link>

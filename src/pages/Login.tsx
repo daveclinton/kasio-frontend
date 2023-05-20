@@ -7,7 +7,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
-import { useAppSelector, useAppDispatch } from "../store/hooks";
+import { useAppDispatch } from "../store/hooks";
 import { setUser } from "../store/auth/actions";
 
 interface IFormInput {
