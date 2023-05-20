@@ -59,7 +59,9 @@ const Navbar: React.FC = () => {
           />
           <Flex justify="space-between" gap="30px">
             <Flex justify="space-between" align="center" gap="10px">
-              <Link whiteSpace="nowrap">Log In</Link>
+              <Link href="/login" whiteSpace="nowrap">
+                Log In
+              </Link>
               <Avatar boxSize="30px" />
             </Flex>
             <Flex justify="space-between" align="center" gap="10px">
