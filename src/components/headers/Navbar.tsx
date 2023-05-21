@@ -5,7 +5,17 @@ import { IconButton, Button } from "@chakra-ui/button";
 import { Avatar } from "@chakra-ui/avatar";
 import { Input } from "@chakra-ui/input";
 import { GiShoppingCart } from "react-icons/gi";
-import { useDisclosure, useMediaQuery, Icon } from "@chakra-ui/react";
+import {
+  useDisclosure,
+  useMediaQuery,
+  Icon,
+  Popover,
+  PopoverBody,
+  PopoverCloseButton,
+  PopoverContent,
+  PopoverTrigger,
+  Portal,
+} from "@chakra-ui/react";
 import MobileMenu from "./MobileMenu";
 import DesktopMenu from "./DesktopMenu";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
@@ -92,7 +102,7 @@ const Navbar: React.FC = () => {
           <Flex justify="space-between" gap="30px">
             <Flex justify="space-between" align="center" gap="10px">
               {user ? (
-                <Text>{`Welcome ${user?.displayName}`}</Text>
+                <Text whiteSpace="nowrap">{`Welcome ${user?.displayName}`}</Text>
               ) : (
                 <Link href="/login" whiteSpace="nowrap">
                   Log In
@@ -100,6 +110,29 @@ const Navbar: React.FC = () => {
               )}
 
               <Avatar boxSize="30px" name={user ? displayName : ""} />
+              {user && (
+                <Popover>
+                  <PopoverTrigger>
+                    <IconButton
+                      variant="unstyled"
+                      aria-label={""}
+                      icon={<ChevronDownIcon />}
+                    />
+                  </PopoverTrigger>
+                  <Portal>
+                    <PopoverContent maxW="195px">
+                      <PopoverBody display="flex" flexDir="column" gap="10px">
+                        <Link>Favorite Products</Link>
+                        <Link>My Account</Link>
+                        <Link>My Orders</Link>
+                        <Link>My Account</Link>
+                        <Link>Delivery Addresses</Link>
+                        <Link>Sign Out</Link>
+                      </PopoverBody>
+                    </PopoverContent>
+                  </Portal>
+                </Popover>
+              )}
             </Flex>
             <Flex justify="space-between" align="center" gap="10px">
               <Link>Cart</Link>
