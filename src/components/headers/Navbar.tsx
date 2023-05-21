@@ -22,7 +22,7 @@ import { auth } from "../../../firebase";
 import { setUser } from "../../store/auth/actions";
 
 const Navbar: React.FC = () => {
-  const [isLargerThanMd] = useMediaQuery("(min-width: 740px)");
+  const [isLargerThanMd] = useMediaQuery("(min-width: 821px)");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isDesktopMenu, setIsDesktopMenu] = React.useState(false);
   const { user }: { user: any } = useAppSelector(
@@ -110,7 +110,7 @@ const Navbar: React.FC = () => {
           <Flex justify="space-between" gap="30px">
             <Flex justify="space-between" align="center" gap="10px">
               {user ? (
-                <Text whiteSpace="nowrap">{`Welcome ${user?.displayName}`}</Text>
+                <Text whiteSpace="nowrap">{user?.displayName}</Text>
               ) : (
                 <Link
                   href="/login"
