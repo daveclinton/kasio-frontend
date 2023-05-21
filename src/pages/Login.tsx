@@ -29,8 +29,13 @@ const Login: React.FC = () => {
         password
       );
       const user = userCredential.user;
-      navigate("/");
-      dispatch(setUser(user));
+      if (user.emailVerified) {
+        navigate("/");
+        dispatch(setUser(user));
+        console.log("User Verifed");
+      } else {
+        console.log("Email NOt verifed");
+      }
     } catch (error) {
       // User creation failed, handle the error
       console.log(error);

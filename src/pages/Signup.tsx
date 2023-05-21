@@ -3,7 +3,11 @@ import { Flex, Box, Heading, Link } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { Divider, Input } from "@chakra-ui/react";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  updateProfile,
+} from "firebase/auth";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
@@ -29,7 +33,7 @@ const SignUp: React.FC = () => {
       const user = userCredential.user;
       await updateProfile(user, { displayName: firstName });
       navigate("/login");
-      console.log("Here", user);
+      await sendEmailVerification(user);
     } catch (error) {
       console.log(error);
     }
