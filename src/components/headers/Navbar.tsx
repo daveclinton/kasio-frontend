@@ -32,6 +32,15 @@ const Navbar: React.FC = () => {
 
   const displayName = user?.displayName;
 
+  const handleSignOut = async () => {
+    try {
+      await auth.signOut();
+      dispatch(setUser(null));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   React.useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
@@ -135,8 +144,9 @@ const Navbar: React.FC = () => {
                           _hover={{ textDecor: "none", color: "primaryYellow" }}
                           textAlign="left"
                           variant="unstyled"
+                          onClick={handleSignOut}
                         >
-                          <Text fontWeight={50}>Sign OUt</Text>
+                          <Text fontWeight={50}>Sign Out</Text>
                         </Button>
                       </PopoverBody>
                     </PopoverContent>
