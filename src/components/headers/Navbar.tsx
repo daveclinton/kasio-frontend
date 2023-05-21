@@ -131,7 +131,14 @@ const Navbar: React.FC = () => {
                         <Link variant="primary">My Orders</Link>
                         <Link variant="primary">My Account</Link>
                         <Link variant="primary">Delivery Addresses</Link>
-                        <Link variant="primary">Sign Out</Link>
+                        <Button
+                          mt="-10px"
+                          _hover={{ textDecor: "none", color: "primaryYellow" }}
+                          textAlign="left"
+                          variant="unstyled"
+                        >
+                          <Text fontWeight={50}>Sign OUt</Text>
+                        </Button>
                       </PopoverBody>
                     </PopoverContent>
                   </Portal>
