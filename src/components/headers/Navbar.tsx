@@ -186,8 +186,53 @@ const Navbar: React.FC = () => {
 
                 <Heading fontSize="20px">Kasio</Heading>
               </Flex>
-              <Flex justify="space-between" gap="40px" align="center">
-                <Avatar boxSize="30px" />
+              <Flex justify="space-between" gap="10px" align="center">
+                {user ? (
+                  <Text whiteSpace="nowrap">{user?.displayName}</Text>
+                ) : (
+                  <Link
+                    href="/login"
+                    _hover={{ textDecor: "none", color: "primaryYellow" }}
+                    whiteSpace="nowrap"
+                  >
+                    Log In
+                  </Link>
+                )}
+                <Avatar boxSize="30px" name={user ? displayName : ""} />
+                {user && (
+                  <Popover>
+                    <PopoverTrigger>
+                      <IconButton
+                        variant="unstyled"
+                        aria-label={""}
+                        icon={<ChevronDownIcon />}
+                      />
+                    </PopoverTrigger>
+                    <Portal>
+                      <PopoverContent maxW="195px">
+                        <PopoverBody display="flex" flexDir="column" gap="10px">
+                          <Link variant="primary">Favorite Products</Link>
+                          <Link variant="primary">My Account</Link>
+                          <Link variant="primary">My Orders</Link>
+                          <Link variant="primary">My Account</Link>
+                          <Link variant="primary">Delivery Addresses</Link>
+                          <Button
+                            mt="-10px"
+                            _hover={{
+                              textDecor: "none",
+                              color: "primaryYellow",
+                            }}
+                            textAlign="left"
+                            variant="unstyled"
+                            onClick={handleSignOut}
+                          >
+                            <Text fontWeight={50}>Sign Out</Text>
+                          </Button>
+                        </PopoverBody>
+                      </PopoverContent>
+                    </Portal>
+                  </Popover>
+                )}
                 <Icon as={GiShoppingCart} boxSize="30px" />
               </Flex>
             </Flex>
