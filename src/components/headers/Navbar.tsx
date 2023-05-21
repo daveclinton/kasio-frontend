@@ -104,7 +104,11 @@ const Navbar: React.FC = () => {
               {user ? (
                 <Text whiteSpace="nowrap">{`Welcome ${user?.displayName}`}</Text>
               ) : (
-                <Link href="/login" whiteSpace="nowrap">
+                <Link
+                  href="/login"
+                  _hover={{ textDecor: "none", color: "primaryYellow" }}
+                  whiteSpace="nowrap"
+                >
                   Log In
                 </Link>
               )}
@@ -122,12 +126,12 @@ const Navbar: React.FC = () => {
                   <Portal>
                     <PopoverContent maxW="195px">
                       <PopoverBody display="flex" flexDir="column" gap="10px">
-                        <Link>Favorite Products</Link>
-                        <Link>My Account</Link>
-                        <Link>My Orders</Link>
-                        <Link>My Account</Link>
-                        <Link>Delivery Addresses</Link>
-                        <Link>Sign Out</Link>
+                        <Link variant="primary">Favorite Products</Link>
+                        <Link variant="primary">My Account</Link>
+                        <Link variant="primary">My Orders</Link>
+                        <Link variant="primary">My Account</Link>
+                        <Link variant="primary">Delivery Addresses</Link>
+                        <Link variant="primary">Sign Out</Link>
                       </PopoverBody>
                     </PopoverContent>
                   </Portal>

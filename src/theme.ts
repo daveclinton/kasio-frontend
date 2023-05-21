@@ -23,6 +23,11 @@ const theme = extendTheme({
         },
       },
     },
+    Link: {
+      variants: {
+        primary: { _hover: { textDecor: "none", color: "primaryYellow" } },
+      },
+    },
   },
 });
 
