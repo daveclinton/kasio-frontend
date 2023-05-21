@@ -11,7 +11,6 @@ import {
   Icon,
   Popover,
   PopoverBody,
-  PopoverCloseButton,
   PopoverContent,
   PopoverTrigger,
   Portal,
