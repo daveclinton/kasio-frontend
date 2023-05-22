@@ -81,7 +81,7 @@ const SignUp: React.FC = () => {
       navigate("/check-email");
       await sendEmailVerification(user);
     } catch (error) {
-      setExistUser("User already exists");
+      setExistUser("Email already in use");
     }
   };
   return (
