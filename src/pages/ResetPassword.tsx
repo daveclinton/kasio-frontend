@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { sendPasswordResetEmail } from "firebase/auth";
-import { Input } from "@chakra-ui/react";
+import { Input, Link } from "@chakra-ui/react";
 
 interface IFormInput {
   emailAddress: string;
@@ -87,6 +87,10 @@ const ResetPassword: React.FC = () => {
         <Button type="submit" variant="primary" disabled={!canResend} w="100%">
           {canResend ? "Send" : `Resend (${countdown})`}
         </Button>
+
+        <Link href="/login" variant="secondary">
+          Back to Login
+        </Link>
       </Flex>
     </Flex>
   );
