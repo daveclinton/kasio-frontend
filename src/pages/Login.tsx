@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Flex, Box, Heading } from "@chakra-ui/layout";
+import { Flex, Box, Heading, Text } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { Divider, Input, Link } from "@chakra-ui/react";
@@ -19,6 +19,7 @@ const Login: React.FC = () => {
   const { register, handleSubmit } = useForm<IFormInput>();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const [emailError, setEmailError] = React.useState<string>("");
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     try {
@@ -32,13 +33,13 @@ const Login: React.FC = () => {
       if (user.emailVerified) {
         navigate("/");
         dispatch(setUser(user));
-        console.log("User Verifed");
       } else {
-        console.log("Email NOt verifed");
+        setEmailError(
+          "Your email address is not verified. Please check your inbox and click on the verification link to complete the verification process"
+        );
       }
     } catch (error) {
-      // User creation failed, handle the error
-      console.log(error);
+      setEmailError("Invalid email or password");
     }
   };
   return (
@@ -70,6 +71,7 @@ const Login: React.FC = () => {
           LOGIN
           <ChevronRightIcon boxSize="25px" />
         </Button>
+        {emailError && <Text color="red">{emailError}</Text>}
       </Flex>
 
       <Divider orientation="vertical" w="10px" color="red" />
