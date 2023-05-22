@@ -1,8 +1,7 @@
 import * as React from "react";
-import { Flex, Box, Heading, Text } from "@chakra-ui/layout";
+import { Flex, Heading, Text, Box, Link } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
-import { ChevronRightIcon } from "@chakra-ui/icons";
-import { Divider, Input, Link } from "@chakra-ui/react";
+import { Input } from "@chakra-ui/react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
@@ -11,7 +10,7 @@ import { useAppDispatch } from "../store/hooks";
 import { setUser } from "../store/auth/actions";
 
 interface IFormInput {
-  emailAdress: string;
+  emailAddress: string;
   password: string;
 }
 
@@ -23,10 +22,10 @@ const Login: React.FC = () => {
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     try {
-      const { emailAdress, password } = data;
+      const { emailAddress, password } = data;
       const userCredential = await signInWithEmailAndPassword(
         auth,
-        emailAdress,
+        emailAddress,
         password
       );
       const user = userCredential.user;
@@ -43,59 +42,58 @@ const Login: React.FC = () => {
     }
   };
   return (
-    <Flex w="100%" justify="center" gap="30px" align="center" mt="32px">
-      <Flex
-        flexDir="column"
-        gap="20px"
-        maxW="700px"
-        as="form"
-        onSubmit={handleSubmit(onSubmit)}
+    <Flex
+      as="form"
+      justify="center"
+      align="center"
+      flexDir="column"
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <Heading fontSize="20px">Welcome to Kasio</Heading>
+      <Text
+        fontSize="16px"
+        textAlign="center"
+        color="#4a4a4a"
+        mt="8px"
+        fontWeight={400}
+        maxW="320px"
       >
-        <Heading fontSize="18px" fontWeight={700}>
-          Welcome back!
-        </Heading>
-        <Input placeholder="Email Address" {...register("emailAdress")} />
-        <Input placeholder="Password" {...register("password")} />
-        <Button
-          mt="20px"
-          color="primaryYellow"
-          bg="#fff"
-          minW="243px"
-          fontSize="16px"
-          type="submit"
-          h="60px"
-          borderRadius="4px"
-          borderColor="primaryYellow"
-          borderWidth="2px"
-        >
-          LOGIN
-          <ChevronRightIcon boxSize="25px" />
+        Type your e-mail and password to log in to your Kasio Account
+      </Text>
+      <Flex mt="24px" w="320px" gap="40px" flexDir="column">
+        <Box>
+          <Text fontSize="14px" fontWeight={400}>
+            Email
+          </Text>
+          <Input mt="15px" {...register("emailAddress")} />
+          {emailError && (
+            <Text
+              color="red"
+              fontSize="14px"
+              textAlign="center"
+              fontWeight={400}
+            >
+              {emailError}
+            </Text>
+          )}
+        </Box>
+        <Box>
+          <Flex fontSize="14px" fontWeight={400} justify="space-between">
+            <Text>Password</Text>
+            <Link variant="secondary">Forgot password?</Link>
+          </Flex>
+          <Input mt="15px" {...register("password")} />
+        </Box>
+        <Button type="submit" variant="primary" w="100%">
+          Login
         </Button>
-        {emailError && <Text color="red">{emailError}</Text>}
+        <Text fontSize="14px" fontWeight={400} textAlign="center">
+          Don’t have account?{" "}
+          <Link href="/signup" variant="secondary">
+            Create new account
+          </Link>
+        </Text>
       </Flex>
-
-      <Divider orientation="vertical" w="10px" color="red" />
-      <Box>
-        <Heading fontSize="18px" fontWeight={700}>
-          New to Kasio?
-        </Heading>
-        <Link href="/signup">
-          <Button
-            mt="20px"
-            color="primaryYellow"
-            bg="#fff"
-            minW="243px"
-            fontSize="16px"
-            h="60px"
-            borderRadius="4px"
-            borderColor="primaryYellow"
-            borderWidth="2px"
-          >
-            CREATE ACCOUNT
-            <ChevronRightIcon boxSize="25px" />
-          </Button>
-        </Link>
-      </Box>
     </Flex>
   );
 };

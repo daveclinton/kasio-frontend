@@ -26,6 +26,22 @@ const theme = extendTheme({
     Link: {
       variants: {
         primary: { _hover: { textDecor: "none", color: "primaryYellow" } },
+        secondary: {
+          color: "primaryYellow",
+          _hover: { textDecor: "none", color: "primaryYellow" },
+        },
+      },
+    },
+    Button: {
+      variants: {
+        primary: {
+          bg: "primaryYellow",
+          color: "#fff",
+          borderRadius: "8px",
+          _hover: { bg: "primaryYellow", color: "#fff" },
+          _active: { bg: "primaryYellow", color: "#fff" },
+          _selected: { bg: "primaryYellow", color: "#fff" },
+        },
       },
     },
   },
