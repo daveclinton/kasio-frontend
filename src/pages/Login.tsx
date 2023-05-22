@@ -1,13 +1,19 @@
 import * as React from "react";
 import { Flex, Heading, Text, Box, Link } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
-import { Input } from "@chakra-ui/react";
+import {
+  IconButton,
+  Input,
+  InputGroup,
+  InputRightElement,
+} from "@chakra-ui/react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../store/hooks";
 import { setUser } from "../store/auth/actions";
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 interface IFormInput {
   emailAddress: string;
@@ -18,7 +24,8 @@ const Login: React.FC = () => {
   const { register, handleSubmit } = useForm<IFormInput>();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const [emailError, setEmailError] = React.useState<string>("");
+  const [isValid, setIsValid] = React.useState<string>("");
+  const [isVisible, setVisible] = React.useState(false);
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     try {
@@ -33,12 +40,12 @@ const Login: React.FC = () => {
         navigate("/");
         dispatch(setUser(user));
       } else {
-        setEmailError(
+        setIsValid(
           "Your email address is not verified. Please check your inbox and click on the verification link to complete the verification process"
         );
       }
     } catch (error) {
-      setEmailError("Invalid email or password");
+      setIsValid("Invalid email or password");
     }
   };
   return (
@@ -80,15 +87,18 @@ const Login: React.FC = () => {
             <Input
               mt={{ base: "5px", lg: "15px" }}
               {...register("emailAddress")}
+              borderColor={isValid ? "red" : undefined}
+              bg="none"
+              _focusVisible={{ borderColor: "primaryYellow" }}
             />
-            {emailError && (
+            {isValid && (
               <Text
                 color="red"
                 fontSize="14px"
                 textAlign="center"
                 fontWeight={400}
               >
-                {emailError}
+                {isValid}
               </Text>
             )}
           </Box>
@@ -97,7 +107,27 @@ const Login: React.FC = () => {
               <Text>Password</Text>
               <Link variant="secondary">Forgot password?</Link>
             </Flex>
-            <Input mt={{ base: "5px", lg: "15px" }} {...register("password")} />
+            <InputGroup mt={{ base: "5px", lg: "15px" }}>
+              <Input
+                {...register("password")}
+                borderColor={isValid ? "red" : undefined}
+                bg="none"
+                _focusVisible={{ borderColor: "primaryYellow" }}
+                type={isVisible ? "text" : "password"}
+              />
+              <InputRightElement width="4.5rem">
+                <IconButton
+                  aria-label="show/hide"
+                  variant="unstyled"
+                  _focusVisible={{ boxShadow: "none" }}
+                  h="1.75rem"
+                  size="sm"
+                  onClick={() => setVisible(!isVisible)}
+                >
+                  {isVisible ? <ViewOffIcon /> : <ViewIcon />}
+                </IconButton>
+              </InputRightElement>
+            </InputGroup>
           </Box>
           <Button type="submit" variant="primary" w="100%">
             Login
