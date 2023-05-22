@@ -43,56 +43,64 @@ const Login: React.FC = () => {
   };
   return (
     <Flex
+      mt="32px"
       as="form"
       justify="center"
       align="center"
-      flexDir="column"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Heading fontSize="20px">Welcome to Kasio</Heading>
-      <Text
-        fontSize="16px"
-        textAlign="center"
-        color="#4a4a4a"
-        mt="8px"
-        fontWeight={400}
-        maxW="320px"
+      <Flex
+        flexDir="column"
+        boxShadow={{ lg: "0px 2px 20px rgba(0, 0, 0, 0.05)" }}
+        align="center"
+        w={{ lg: "450px" }}
+        p={{ lg: "20px" }}
       >
-        Type your e-mail and password to log in to your Kasio Account
-      </Text>
-      <Flex mt="24px" w="320px" gap="40px" flexDir="column">
-        <Box>
-          <Text fontSize="14px" fontWeight={400}>
-            Email
-          </Text>
-          <Input mt="15px" {...register("emailAddress")} />
-          {emailError && (
-            <Text
-              color="red"
-              fontSize="14px"
-              textAlign="center"
-              fontWeight={400}
-            >
-              {emailError}
-            </Text>
-          )}
-        </Box>
-        <Box>
-          <Flex fontSize="14px" fontWeight={400} justify="space-between">
-            <Text>Password</Text>
-            <Link variant="secondary">Forgot password?</Link>
-          </Flex>
-          <Input mt="15px" {...register("password")} />
-        </Box>
-        <Button type="submit" variant="primary" w="100%">
-          Login
-        </Button>
-        <Text fontSize="14px" fontWeight={400} textAlign="center">
-          Don’t have account?{" "}
-          <Link href="/signup" variant="secondary">
-            Create new account
-          </Link>
+        <Heading fontSize="20px">Welcome to Kasio</Heading>
+        <Text
+          fontSize="16px"
+          textAlign="center"
+          color="#4a4a4a"
+          mt="8px"
+          fontWeight={400}
+          maxW="320px"
+        >
+          Type your e-mail and password to log in to your Kasio Account
         </Text>
+        <Flex mt="24px" w="320px" gap="40px" flexDir="column">
+          <Box>
+            <Text fontSize="14px" fontWeight={400}>
+              Email
+            </Text>
+            <Input mt="15px" {...register("emailAddress")} />
+            {emailError && (
+              <Text
+                color="red"
+                fontSize="14px"
+                textAlign="center"
+                fontWeight={400}
+              >
+                {emailError}
+              </Text>
+            )}
+          </Box>
+          <Box>
+            <Flex fontSize="14px" fontWeight={400} justify="space-between">
+              <Text>Password</Text>
+              <Link variant="secondary">Forgot password?</Link>
+            </Flex>
+            <Input mt="15px" {...register("password")} />
+          </Box>
+          <Button type="submit" variant="primary" w="100%">
+            Login
+          </Button>
+          <Text fontSize="14px" fontWeight={400} textAlign="center">
+            Don’t have account?{" "}
+            <Link href="/signup" variant="secondary">
+              Create new account
+            </Link>
+          </Text>
+        </Flex>
       </Flex>
     </Flex>
   );
