@@ -105,7 +105,9 @@ const Login: React.FC = () => {
           <Box>
             <Flex fontSize="14px" fontWeight={400} justify="space-between">
               <Text>Password</Text>
-              <Link variant="secondary">Forgot password?</Link>
+              <Link href="/reset-password" variant="secondary">
+                Forgot password?
+              </Link>
             </Flex>
             <InputGroup mt={{ base: "5px", lg: "15px" }}>
               <Input

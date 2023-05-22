@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import { Box } from "@chakra-ui/react";
 import CheckEmail from "./pages/CheckEmail";
+import ResetPassword from "./pages/ResetPassword";
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const App: React.FC = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/check-email" element={<CheckEmail />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
             </Route>
           </Routes>
         </Box>
