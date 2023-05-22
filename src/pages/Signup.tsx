@@ -66,6 +66,7 @@ const SignUp: React.FC = () => {
   } = useForm<IFormInput>({ resolver: yupResolver(schema) });
   const navigate = useNavigate();
   const [isVisible, setVisible] = React.useState(false);
+  const [userExists, setExistUser] = React.useState<string>("");
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     try {
@@ -77,10 +78,10 @@ const SignUp: React.FC = () => {
       );
       const user = userCredential.user;
       await updateProfile(user, { displayName: firstName });
-      navigate("/login");
+      navigate("/check-email");
       await sendEmailVerification(user);
     } catch (error) {
-      error;
+      setExistUser("User already exists");
     }
   };
   return (
@@ -98,7 +99,9 @@ const SignUp: React.FC = () => {
         w={{ lg: "450px" }}
         p={{ lg: "20px" }}
       >
-        <Heading fontSize="20px">Welcome to Kasio</Heading>
+        <Heading textAlign="center" fontSize="20px">
+          Join Us!
+        </Heading>
         <Text
           fontSize="16px"
           textAlign="center"
@@ -110,6 +113,7 @@ const SignUp: React.FC = () => {
           Type details below to create an account with Kasio
         </Text>
         <Flex mt="24px" w="320px" gap="20px" flexDir="column">
+          {userExists && <Text color="red">{userExists}</Text>}
           <Box>
             <Flex justify="space-between">
               <Text textAlign="start" fontSize="14px" fontWeight={400}>

@@ -31,7 +31,6 @@ const Navbar: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const displayName = user?.displayName;
-  console.log(user);
 
   const handleSignOut = async () => {
     try {
