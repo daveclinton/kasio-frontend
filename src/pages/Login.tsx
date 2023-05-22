@@ -67,12 +67,20 @@ const Login: React.FC = () => {
         >
           Type your e-mail and password to log in to your Kasio Account
         </Text>
-        <Flex mt="24px" w="320px" gap="40px" flexDir="column">
+        <Flex
+          mt="24px"
+          w="320px"
+          gap={{ base: "20px", lg: "40px" }}
+          flexDir="column"
+        >
           <Box>
             <Text fontSize="14px" fontWeight={400}>
               Email
             </Text>
-            <Input mt="15px" {...register("emailAddress")} />
+            <Input
+              mt={{ base: "5px", lg: "15px" }}
+              {...register("emailAddress")}
+            />
             {emailError && (
               <Text
                 color="red"
@@ -89,7 +97,7 @@ const Login: React.FC = () => {
               <Text>Password</Text>
               <Link variant="secondary">Forgot password?</Link>
             </Flex>
-            <Input mt="15px" {...register("password")} />
+            <Input mt={{ base: "5px", lg: "15px" }} {...register("password")} />
           </Box>
           <Button type="submit" variant="primary" w="100%">
             Login
