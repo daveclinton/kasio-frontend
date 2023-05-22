@@ -1,8 +1,12 @@
 import * as React from "react";
-import { Flex, Box, Heading, Link } from "@chakra-ui/layout";
+import { Flex, Box, Heading, Link, Text } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
-import { ChevronRightIcon } from "@chakra-ui/icons";
-import { Divider, Input } from "@chakra-ui/react";
+import {
+  IconButton,
+  Input,
+  InputGroup,
+  InputRightElement,
+} from "@chakra-ui/react";
 import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
@@ -11,88 +15,189 @@ import {
 import { useForm, SubmitHandler } from "react-hook-form";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import { ViewOffIcon, ViewIcon } from "@chakra-ui/icons";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
 interface IFormInput {
   firstName: string;
   lastName: string;
-  emailAdress: string;
+  emailAddress: string;
   password: string;
 }
 
+const nameRegex = /^[A-Za-z-' ]{2,}$/;
+
+const schema = yup
+  .object({
+    firstName: yup
+      .string()
+      .required("Required")
+      .matches(
+        nameRegex,
+        "Must be longer than one letter (and no special characters!)"
+      ),
+    lastName: yup
+      .string()
+      .required("Required")
+      .matches(
+        nameRegex,
+        "Must be longer than one letter (and no special characters!)"
+      ),
+    emailAddress: yup
+      .string()
+      .required("Required")
+      .email("That does not look like a valid email"),
+    password: yup
+      .string()
+      .required("Required")
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/,
+        "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number"
+      ),
+  })
+  .required();
+
 const SignUp: React.FC = () => {
-  const { register, handleSubmit } = useForm<IFormInput>();
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<IFormInput>({ resolver: yupResolver(schema) });
   const navigate = useNavigate();
+  const [isVisible, setVisible] = React.useState(false);
+  const [isSubmitted, setIsSubmitted] = React.useState(false);
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     try {
-      const { emailAdress, password, firstName } = data;
+      const { emailAddress, password, firstName } = data;
       const userCredential = await createUserWithEmailAndPassword(
         auth,
-        emailAdress,
+        emailAddress,
         password
       );
       const user = userCredential.user;
       await updateProfile(user, { displayName: firstName });
       navigate("/login");
       await sendEmailVerification(user);
+      setIsSubmitted(true);
     } catch (error) {
-      console.log(error);
+      error;
     }
   };
   return (
-    <Flex w="100%" justify="center" gap="30px" align="center" mt="32px">
-      <Box>
-        <Heading fontSize="18px" fontWeight={700}>
-          Have an Account?
-        </Heading>
-        <Link href="/login">
-          <Button
-            mt="20px"
-            color="primaryYellow"
-            bg="#fff"
-            minW="243px"
-            fontSize="16px"
-            h="60px"
-            borderRadius="4px"
-            borderColor="primaryYellow"
-            borderWidth="2px"
-          >
-            LOGIN
-            <ChevronRightIcon boxSize="25px" />
-          </Button>
-        </Link>
-      </Box>
-      <Divider orientation="vertical" w="10px" color="red" />
+    <Flex
+      mt="32px"
+      as="form"
+      justify="center"
+      align="center"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <Flex
-        as="form"
         flexDir="column"
-        gap="20px"
-        maxW="700px"
-        onSubmit={handleSubmit(onSubmit)}
+        boxShadow={{ lg: "0px 2px 20px rgba(0, 0, 0, 0.05)" }}
+        align="center"
+        w={{ lg: "450px" }}
+        p={{ lg: "20px" }}
       >
-        <Heading fontSize="18px" fontWeight={700}>
-          Create an Account
-        </Heading>
-
-        <Input placeholder="FirstName" {...register("firstName")} />
-        <Input placeholder="LastName" {...register("lastName")} />
-        <Input placeholder="Email Address" {...register("emailAdress")} />
-        <Input placeholder="Choose Password" {...register("password")} />
-        <Input placeholder="Confirm Password" {...register("password")} />
-        <Button
-          mt="20px"
-          color="primaryYellow"
-          bg="#fff"
-          minW="243px"
-          type="submit"
+        <Heading fontSize="20px">Welcome to Kasio</Heading>
+        <Text
           fontSize="16px"
-          h="60px"
-          borderRadius="4px"
-          borderColor="primaryYellow"
-          borderWidth="2px"
+          textAlign="center"
+          color="#4a4a4a"
+          mt="8px"
+          fontWeight={400}
+          maxW="320px"
         >
-          CREATE ACCOUNT & CONTINUE
-          <ChevronRightIcon boxSize="25px" />
-        </Button>
+          Type details below to create an account with Kasio
+        </Text>
+        <Flex mt="24px" w="320px" gap="20px" flexDir="column">
+          <Box>
+            <Flex justify="space-between">
+              <Text textAlign="start" fontSize="14px" fontWeight={400}>
+                First Name
+              </Text>
+              <Text mr="78px" fontSize="14px" fontWeight={400}>
+                Last Name
+              </Text>
+            </Flex>
+            <Flex gap="20px" justify={"space-between"}>
+              <Box>
+                <Input
+                  mt={{ base: "5px", lg: "15px" }}
+                  {...register("firstName")}
+                  bg="none"
+                  _focusVisible={{ borderColor: "primaryYellow" }}
+                />
+                <Text fontSize="10px" color="red">
+                  {errors.firstName?.message}
+                </Text>
+              </Box>
+              <Box>
+                {" "}
+                <Input
+                  mt={{ base: "5px", lg: "15px" }}
+                  {...register("lastName")}
+                  bg="none"
+                  _focusVisible={{ borderColor: "primaryYellow" }}
+                />
+                <Text fontSize="10px" color="red">
+                  {errors.lastName?.message}
+                </Text>
+              </Box>
+            </Flex>
+            <Text mt="10px" fontSize="14px" fontWeight={400}>
+              Email Address
+            </Text>
+            <Input
+              mt={{ base: "5px", lg: "15px" }}
+              {...register("emailAddress")}
+              bg="none"
+              _focusVisible={{ borderColor: "primaryYellow" }}
+            />
+            <Text fontSize="10px" color="red">
+              {errors.emailAddress?.message}
+            </Text>
+          </Box>
+          <Box>
+            <Text fontSize="14px" fontWeight={400}>
+              Password
+            </Text>
+            <InputGroup mt={{ base: "5px", lg: "15px" }}>
+              <Input
+                {...register("password")}
+                bg="none"
+                _focusVisible={{ borderColor: "primaryYellow" }}
+                type={isVisible ? "text" : "password"}
+              />
+
+              <InputRightElement width="4.5rem">
+                <IconButton
+                  aria-label="show/hide"
+                  variant="unstyled"
+                  _focusVisible={{ boxShadow: "none" }}
+                  h="1.75rem"
+                  size="sm"
+                  onClick={() => setVisible(!isVisible)}
+                >
+                  {isVisible ? <ViewOffIcon /> : <ViewIcon />}
+                </IconButton>
+              </InputRightElement>
+            </InputGroup>
+            <Text fontSize="10px" color="red">
+              {errors.password?.message}
+            </Text>
+          </Box>
+          <Button type="submit" variant="primary" w="100%">
+            Create Account
+          </Button>
+          <Text fontSize="14px" fontWeight={400} textAlign="center">
+            Have an account?{" "}
+            <Link href="/login" variant="secondary">
+              Proceed to Login
+            </Link>
+          </Text>
+        </Flex>
       </Flex>
     </Flex>
   );

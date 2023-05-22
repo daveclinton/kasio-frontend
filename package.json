@@ -14,6 +14,7 @@
     "@chakra-ui/react": "^2.6.1",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
+    "@hookform/resolvers": "^3.1.0",
     "dotenv": "^16.0.3",
     "firebase": "^9.22.0",
     "framer-motion": "^10.12.11",
@@ -27,7 +28,8 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.2",
     "redux": "^4.2.1",
-    "redux-thunk": "^2.4.2"
+    "redux-thunk": "^2.4.2",
+    "yup": "^1.1.1"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
