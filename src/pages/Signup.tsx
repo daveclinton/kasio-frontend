@@ -66,7 +66,6 @@ const SignUp: React.FC = () => {
   } = useForm<IFormInput>({ resolver: yupResolver(schema) });
   const navigate = useNavigate();
   const [isVisible, setVisible] = React.useState(false);
-  const [isSubmitted, setIsSubmitted] = React.useState(false);
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     try {
@@ -80,7 +79,6 @@ const SignUp: React.FC = () => {
       await updateProfile(user, { displayName: firstName });
       navigate("/login");
       await sendEmailVerification(user);
-      setIsSubmitted(true);
     } catch (error) {
       error;
     }
