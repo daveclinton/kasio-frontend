@@ -42,6 +42,13 @@ const theme = extendTheme({
           _active: { bg: "primaryYellow", color: "#fff" },
           _selected: { bg: "primaryYellow", color: "#fff" },
         },
+        secondary: {
+          bg: "none",
+          borderRadius: "8px",
+          _hover: { bg: "primaryYellow", color: "#fff" },
+          _active: { bg: "primaryYellow", color: "#fff" },
+          _selected: { bg: "primaryYellow", color: "#fff" },
+        },
       },
     },
   },

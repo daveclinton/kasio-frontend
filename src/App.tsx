@@ -9,6 +9,7 @@ import Signup from "./pages/Signup";
 import { Box } from "@chakra-ui/react";
 import CheckEmail from "./pages/CheckEmail";
 import ResetPassword from "./pages/ResetPassword";
+import Dashboard from "./pages/Dashboard";
 
 const App: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const App: React.FC = () => {
         <Box mt="210px">
           <Routes>
             <Route>
+              <Route path="/" element={<Dashboard />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/check-email" element={<CheckEmail />} />

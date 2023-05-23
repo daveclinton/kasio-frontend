@@ -15,6 +15,7 @@
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@hookform/resolvers": "^3.1.0",
+    "@types/react-slick": "^0.23.10",
     "dotenv": "^16.0.3",
     "firebase": "^9.22.0",
     "framer-motion": "^10.12.11",
@@ -27,6 +28,7 @@
     "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.2",
+    "react-slick": "^0.29.0",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "yup": "^1.1.1"
