@@ -40,9 +40,7 @@ const Login: React.FC = () => {
         navigate("/");
         dispatch(setUser(user));
       } else {
-        setIsValid(
-          "Your email address is not verified. Please check your inbox and click on the verification link to complete the verification process"
-        );
+        setIsValid("Email address not verified");
       }
     } catch (error) {
       setIsValid("Invalid email or password");
@@ -92,12 +90,7 @@ const Login: React.FC = () => {
               _focusVisible={{ borderColor: "primaryYellow" }}
             />
             {isValid && (
-              <Text
-                color="red"
-                fontSize="14px"
-                textAlign="center"
-                fontWeight={400}
-              >
+              <Text color="red" fontSize="14px" fontWeight={400}>
                 {isValid}
               </Text>
             )}
