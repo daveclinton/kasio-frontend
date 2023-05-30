@@ -20,7 +20,7 @@ const Dashboard = () => {
     };
   }, [cardImage.length]);
   return (
-    <Flex mt="32px" w="100%">
+    <Flex w="100%">
       <Flex
         w="100%"
         justify="center"
@@ -37,7 +37,8 @@ const Dashboard = () => {
           flexDir="column"
           justify="center"
           backgroundImage={`url(${cardImage[step]})`}
-          position="relative"
+          animation="slide 0.5s ease-in-out forwards"
+          transition="background-image 0.5s ease-in-out"
         >
           <Flex w="100%" p="15% 10px" justify="space-between">
             <IconButton
@@ -71,13 +72,18 @@ const Dashboard = () => {
         </Flex>
         <Flex
           w="80%"
-          gap="20px"
           boxShadow="0px 2px 20px rgba(0, 0, 0, 0.05)"
           p="20px"
+          justify="space-between"
         >
-          <Button variant="secondary">Computing Essentials</Button>
-          <Button variant="secondary">Office</Button>
-          <Divider orientation="vertical" borderWidth="3px" />
+          <Flex display={{ base: "none", md: "flex" }} gap="20px">
+            <Button variant="secondary">Computing Essentials</Button>
+            <Button variant="secondary">Office</Button>
+            <Divider orientation="vertical" borderWidth="3px" />
+          </Flex>
+          <Button w={{ base: "100%", md: "auto" }} flex="end" variant="primary">
+            See Deals
+          </Button>
         </Flex>
       </Flex>
     </Flex>
