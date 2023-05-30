@@ -10,6 +10,7 @@ import { Box } from "@chakra-ui/react";
 import CheckEmail from "./pages/CheckEmail";
 import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/Dashboard";
+import Footer from "./components/headers/Footer";
 
 const App: React.FC = () => {
   return (
@@ -29,6 +30,7 @@ const App: React.FC = () => {
             </Route>
           </Routes>
         </Box>
+        <Footer />
       </Flex>
     </Flex>
   );
