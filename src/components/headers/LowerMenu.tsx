@@ -18,6 +18,7 @@ const LowerMenu: React.FC = () => {
       bg="#231f20"
       p="20px"
       gap="20px"
+      zIndex={20}
     >
       {categories.map(({ name, icon, subcategories }, menuData) => (
         <Flex maxW="1240px" align="center" key={menuData} gap="10px">
