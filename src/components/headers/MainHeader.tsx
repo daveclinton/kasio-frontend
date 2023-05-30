@@ -16,6 +16,7 @@ const MainHeader: React.FC = () => {
         alignItems="center"
         fontSize="12px"
         h="32px"
+        zIndex={20}
         justify="center"
       >
         <Flex

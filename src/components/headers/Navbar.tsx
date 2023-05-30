@@ -72,6 +72,7 @@ const Navbar: React.FC = () => {
       align="center"
       minH="72px"
       color="white"
+      zIndex={20}
       bg="#231f20"
       mt="32px"
     >

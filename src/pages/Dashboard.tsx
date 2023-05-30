@@ -1,7 +1,9 @@
 import * as React from "react";
 import { Button, IconButton } from "@chakra-ui/button";
-import { Divider, Flex } from "@chakra-ui/layout";
+import { Divider, Flex, Text } from "@chakra-ui/layout";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
+import { Image } from "@chakra-ui/react";
+import { categories } from "../utils/ProductCategories";
 
 const Dashboard = () => {
   const [step, setStep] = React.useState(0);
@@ -84,6 +86,31 @@ const Dashboard = () => {
           <Button w={{ base: "100%", md: "auto" }} flex="end" variant="primary">
             See Deals
           </Button>
+        </Flex>
+        <Flex w="80%" justify="center" flexWrap="wrap">
+          {categories.map(({ name, image }, data) => (
+            <Flex
+              flexDir="column"
+              justify="space-between"
+              key={data}
+              w={{ base: "130px", md: "150px", lg: "220px" }}
+              boxShadow="0px 2px 20px rgba(0, 0, 0, 0.05)"
+              borderRadius="8px"
+              ml="25px"
+              p={{ base: "20px", md: "auto" }}
+              mb="25px"
+              cursor="pointer"
+            >
+              <Image src={image} maxH="160px" />
+              <Text
+                fontWeight={700}
+                textTransform="capitalize"
+                textAlign="center"
+              >
+                {name}
+              </Text>
+            </Flex>
+          ))}
         </Flex>
       </Flex>
     </Flex>
