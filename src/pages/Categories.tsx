@@ -1,17 +1,9 @@
 import * as React from "react";
-import {
-  Box,
-  Heading,
-  Flex,
-  Stack,
-  Text,
-  Link,
-  Divider,
-} from "@chakra-ui/layout";
+import { Box, Heading, Flex, Stack, Text, Link } from "@chakra-ui/layout";
 import { Radio } from "@chakra-ui/radio";
 import { Checkbox } from "@chakra-ui/checkbox";
 import BreadCrumb from "../components/BreadCrumb";
-import { Button, ButtonGroup } from "@chakra-ui/button";
+import { Button } from "@chakra-ui/button";
 import {
   Accordion,
   AccordionItem,
@@ -22,8 +14,7 @@ import {
 import { categories } from "../utils/ProductCategories";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/menu";
-import { Card, CardBody, CardFooter } from "@chakra-ui/card";
-import { Image } from "@chakra-ui/image";
+import ProductCard from "../components/cards/ProductCard";
 
 const Categories: React.FC = () => {
   return (
@@ -122,33 +113,7 @@ const Categories: React.FC = () => {
                 </MenuList>
               </Menu>
             </Flex>
-            <Flex justify="center" flexWrap="wrap">
-              <Card maxW="250px">
-                <CardBody>
-                  <Image
-                    src="https://skygarden.azureedge.net/images-thumbnails/products/1364794-45b0d3f576a044f5bdc41129bcf05045.jpg"
-                    alt="Green double couch with wooden legs"
-                    borderRadius="lg"
-                  />
-                  <Stack mt="3" spacing="3">
-                    <Heading size="md">Hp Printer 135A</Heading>
-                    <Text color="blue.600" fontSize="2xl">
-                      $450
-                    </Text>
-                  </Stack>
-                  <Text>Grace Stores</Text>
-                </CardBody>
-                <Divider />
-                <CardFooter>
-                  <ButtonGroup spacing="2">
-                    <Button variant="primary">Buy now</Button>
-                    <Button variant="secondary" colorScheme="blue">
-                      Add to cart
-                    </Button>
-                  </ButtonGroup>
-                </CardFooter>
-              </Card>
-            </Flex>
+            <ProductCard />
           </Flex>
         </Flex>
       </Flex>
