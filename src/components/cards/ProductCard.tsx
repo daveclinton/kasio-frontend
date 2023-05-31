@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Image } from "@chakra-ui/image";
 import { Button } from "@chakra-ui/button";
-import { Flex, Text, Heading } from "@chakra-ui/layout";
+import { Flex, Link, Heading } from "@chakra-ui/layout";
 import { categories } from "../../utils/ProductCategories";
 import { useNavigate } from "react-router-dom";
 
@@ -33,21 +33,29 @@ const ProductCard: React.FC = () => {
                   <Flex fontWeight={700} textTransform="capitalize">
                     {name}
                   </Flex>
-                  <Flex w="100%" flexWrap="wrap" justify="space-between">
+                  <Flex
+                    w="100%"
+                    mt="20px"
+                    gap="20px"
+                    flexWrap="wrap"
+                    justify="space-between"
+                    align="center"
+                  >
                     <Heading
                       fontWeight={700}
                       textTransform="capitalize"
-                      fontSize="18px"
+                      fontSize="16px"
+                      color="#313133"
                     >
                       Ksh {price}
                     </Heading>
-                    <Text
+                    <Link
                       fontWeight={700}
                       textTransform="capitalize"
                       textAlign="center"
                     >
                       {shop}
-                    </Text>
+                    </Link>
                   </Flex>
 
                   <Button variant="primary">Buy Now</Button>
