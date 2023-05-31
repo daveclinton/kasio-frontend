@@ -26,7 +26,13 @@ const Categories: React.FC = () => {
       >
         Printers & Scanners
       </Heading>
-      <Flex justify="center" align="center" mt="30px" w="90%">
+      <Flex
+        justify="center"
+        pl={{ lg: "5%", xl: "auto" }}
+        align="center"
+        mt="30px"
+        w="90%"
+      >
         <Flex gap="20%">
           <Box>
             <Stack>
@@ -62,20 +68,20 @@ const Categories: React.FC = () => {
             >
               <Accordion allowToggle>
                 {categories.map(({ name, subcategories }, productData) => (
-                  <AccordionItem borderTop="none" key={productData}>
+                  <AccordionItem
+                    borderTop="none"
+                    borderBottom="0.5px solid #231f20"
+                    key={productData}
+                  >
                     <AccordionButton>
-                      <Box as="span" flex="1" textAlign="left">
+                      <Text color="#231f20" as="span" flex="1" textAlign="left">
                         {name}
-                      </Box>
+                      </Text>
                       <AccordionIcon />
                     </AccordionButton>
                     {subcategories?.map(({ name }, subCategoryData) => (
-                      <AccordionPanel
-                        whiteSpace="nowrap"
-                        key={subCategoryData}
-                        pb={4}
-                      >
-                        <Link>{name}</Link>
+                      <AccordionPanel key={subCategoryData} pb={4}>
+                        <Link whiteSpace="nowrap">{name}</Link>
                       </AccordionPanel>
                     ))}
                   </AccordionItem>
