@@ -1,8 +1,10 @@
 import * as React from "react";
 import { categories } from "../../utils/ProductCategories";
 import { Flex, Image, Text } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 const DashboardCard: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <Flex w="80%" justify="center" flexWrap="wrap">
       {categories.map(({ name, image }, data) => (
@@ -16,6 +18,7 @@ const DashboardCard: React.FC = () => {
           ml="25px"
           p={{ base: "20px", md: "auto" }}
           mb="25px"
+          onClick={() => navigate("/category")}
           cursor="pointer"
         >
           <Image src={image} maxH="160px" />

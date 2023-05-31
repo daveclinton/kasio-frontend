@@ -89,6 +89,7 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ isOpen, onClose }) => {
                             textDecoration: "none",
                             color: "primaryYellow",
                           }}
+                          href="/category"
                         >
                           {name}
                         </Link>
@@ -106,6 +107,7 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ isOpen, onClose }) => {
                             key={subIndex}
                             ml={8}
                             py={1}
+                            href="/category"
                             _hover={{
                               textDecoration: "none",
                               color: "primaryYellow",
@@ -114,7 +116,6 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ isOpen, onClose }) => {
                               textDecoration: "none",
                               color: "primaryYellow",
                             }}
-                            href={subcategory.link}
                           >
                             {subcategory.name}
                           </Link>

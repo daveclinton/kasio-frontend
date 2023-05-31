@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Flex } from "@chakra-ui/layout";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, redirect } from "react-router-dom";
 import MainHeader from "./components/headers/MainHeader";
 import Navbar from "./components/headers/Navbar";
 import LowerMenu from "./components/headers/LowerMenu";
@@ -11,13 +11,15 @@ import CheckEmail from "./pages/CheckEmail";
 import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/Dashboard";
 import Footer from "./components/headers/Footer";
+import Categories from "./pages/Categories";
 
 const App: React.FC = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const location = useLocation();
+  const { pathname } = location;
 
-  if (location.pathname === "/") {
-    navigate("/home", { replace: true });
+  if (pathname === "/") {
+    redirect("/home");
   }
 
   return (
@@ -34,10 +36,11 @@ const App: React.FC = () => {
               <Route path="/signup" element={<Signup />} />
               <Route path="/check-email" element={<CheckEmail />} />
               <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/category" element={<Categories />} />
             </Route>
           </Routes>
         </Box>
-        <Footer />
+        {pathname === "/home" && <Footer />}
       </Flex>
     </Flex>
   );

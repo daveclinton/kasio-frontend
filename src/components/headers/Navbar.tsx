@@ -85,10 +85,14 @@ const Navbar: React.FC = () => {
           gap="20px"
         >
           <Flex gap="20px">
-            <Heading fontSize="30px">Kasio</Heading>
+            <Heading fontSize="30px">
+              <Link variant="unstyled" href="/home">
+                Kasio
+              </Link>
+            </Heading>
             <Button
               cursor="pointer"
-              onMouseOver={() => setIsDesktopMenu(true)}
+              onClick={() => setIsDesktopMenu(true)}
               bg="none"
               border="2px solid #e07e1b"
               _hover={{ bg: "none" }}
