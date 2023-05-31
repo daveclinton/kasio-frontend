@@ -19,7 +19,7 @@ const ProductCard: React.FC = () => {
                 <Flex
                   flexDir="column"
                   justify="space-between"
-                  key={`${name}-${name}`}
+                  key={name}
                   w={{ base: "130px", md: "150px", lg: "220px" }}
                   boxShadow="0px 2px 20px rgba(0, 0, 0, 0.05)"
                   borderRadius="8px"
