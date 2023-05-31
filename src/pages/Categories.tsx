@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Heading, Flex, Stack, Text } from "@chakra-ui/layout";
+import { Box, Heading, Flex, Stack, Text, Link } from "@chakra-ui/layout";
 import { Radio } from "@chakra-ui/radio";
 import { Checkbox } from "@chakra-ui/checkbox";
 import BreadCrumb from "../components/BreadCrumb";
@@ -53,9 +53,16 @@ const Categories: React.FC = () => {
                 <Checkbox defaultChecked>New Product</Checkbox>
                 <Checkbox defaultChecked>Best Seller</Checkbox>
               </Stack>
+            </Box>
+            <Box
+              boxShadow="0px 2px 20px rgba(0, 0, 0, 0.05)"
+              p="20px"
+              mt="20px"
+              minW="250px"
+            >
               <Accordion allowToggle>
                 {categories.map(({ name, subcategories }, productData) => (
-                  <AccordionItem key={productData}>
+                  <AccordionItem borderTop="none" key={productData}>
                     <AccordionButton>
                       <Box as="span" flex="1" textAlign="left">
                         {name}
@@ -63,8 +70,12 @@ const Categories: React.FC = () => {
                       <AccordionIcon />
                     </AccordionButton>
                     {subcategories?.map(({ name }, subCategoryData) => (
-                      <AccordionPanel key={subCategoryData} pb={4}>
-                        {name}
+                      <AccordionPanel
+                        whiteSpace="nowrap"
+                        key={subCategoryData}
+                        pb={4}
+                      >
+                        <Link>{name}</Link>
                       </AccordionPanel>
                     ))}
                   </AccordionItem>
