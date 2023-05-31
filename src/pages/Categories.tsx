@@ -3,6 +3,7 @@ import { Box, Heading, Flex, Stack, Text, Link } from "@chakra-ui/layout";
 import { Radio } from "@chakra-ui/radio";
 import { Checkbox } from "@chakra-ui/checkbox";
 import BreadCrumb from "../components/BreadCrumb";
+import { Button } from "@chakra-ui/button";
 import {
   Accordion,
   AccordionItem,
@@ -11,6 +12,8 @@ import {
   AccordionIcon,
 } from "@chakra-ui/accordion";
 import { categories } from "../utils/ProductCategories";
+import { ChevronDownIcon } from "@chakra-ui/icons";
+import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/menu";
 
 const Categories: React.FC = () => {
   return (
@@ -95,6 +98,20 @@ const Categories: React.FC = () => {
               Epson, Canon Pixma, HP, Kyocera among others for your home, office
               or business. Delivery is in Nairobi and all over Kenya.
             </Text>
+            <Flex mt="20px" align="center" w="100%" justify="space-between">
+              <Text>Products</Text>
+              <Menu>
+                <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                  Sort By
+                </MenuButton>
+                <MenuList>
+                  <MenuItem>Price high to low</MenuItem>
+                  <MenuItem>Price low to high</MenuItem>
+                  <MenuItem>Name Ascending</MenuItem>
+                  <MenuItem>Name Descending</MenuItem>
+                </MenuList>
+              </Menu>
+            </Flex>
           </Flex>
         </Flex>
       </Flex>
