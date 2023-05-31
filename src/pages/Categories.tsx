@@ -37,7 +37,7 @@ const Categories: React.FC = () => {
         mt="30px"
         w="90%"
       >
-        <Flex gap="20%">
+        <Flex gap="10%">
           <Box>
             <Stack>
               <Radio size="md" name="1" colorScheme="yellow">
