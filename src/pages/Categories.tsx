@@ -1,7 +1,16 @@
 import * as React from "react";
 import { Box, Heading, Flex, Stack, Text } from "@chakra-ui/layout";
 import { Radio } from "@chakra-ui/radio";
+import { Checkbox } from "@chakra-ui/checkbox";
 import BreadCrumb from "../components/BreadCrumb";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+} from "@chakra-ui/accordion";
+import { categories } from "../utils/ProductCategories";
 
 const Categories: React.FC = () => {
   return (
@@ -28,6 +37,40 @@ const Categories: React.FC = () => {
                 Shops{100}
               </Radio>
             </Stack>
+            <Box
+              boxShadow="0px 2px 20px rgba(0, 0, 0, 0.05)"
+              p="20px"
+              mt="20px"
+              bg="#f5e5d5"
+              minW="250px"
+            >
+              <Heading fontSize="18px" color="#231f20" whiteSpace="nowrap">
+                Quick filters
+              </Heading>
+              <Stack mt="20px" spacing={3}>
+                <Checkbox defaultChecked>On Sale</Checkbox>
+                <Checkbox defaultChecked>Verified Partner</Checkbox>
+                <Checkbox defaultChecked>New Product</Checkbox>
+                <Checkbox defaultChecked>Best Seller</Checkbox>
+              </Stack>
+              <Accordion allowToggle>
+                {categories.map(({ name, subcategories }, productData) => (
+                  <AccordionItem key={productData}>
+                    <AccordionButton>
+                      <Box as="span" flex="1" textAlign="left">
+                        {name}
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                    {subcategories?.map(({ name }, subCategoryData) => (
+                      <AccordionPanel key={subCategoryData} pb={4}>
+                        {name}
+                      </AccordionPanel>
+                    ))}
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </Box>
           </Box>
           <Flex align="center" flexDir="column">
             <Text textAlign="left">
