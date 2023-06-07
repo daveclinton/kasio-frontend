@@ -15,6 +15,7 @@ import { categories } from "../utils/ProductCategories";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/menu";
 import ProductCard from "../components/cards/ProductCard";
+import { NavLink } from "react-router-dom";
 
 const Categories: React.FC = () => {
   return (
@@ -85,7 +86,9 @@ const Categories: React.FC = () => {
                     </AccordionButton>
                     {subcategories?.map(({ name }, subCategoryData) => (
                       <AccordionPanel key={subCategoryData} pb={4}>
-                        <Link whiteSpace="nowrap">{name}</Link>
+                        <Link as={NavLink} href="/category" whiteSpace="nowrap">
+                          {name}
+                        </Link>
                       </AccordionPanel>
                     ))}
                   </AccordionItem>

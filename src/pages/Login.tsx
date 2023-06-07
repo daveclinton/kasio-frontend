@@ -10,7 +10,7 @@ import {
 import { useForm, SubmitHandler } from "react-hook-form";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../store/hooks";
 import { setUser } from "../store/auth/actions";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -98,7 +98,7 @@ const Login: React.FC = () => {
           <Box>
             <Flex fontSize="14px" fontWeight={400} justify="space-between">
               <Text>Password</Text>
-              <Link href="/reset-password" variant="secondary">
+              <Link as={NavLink} href="/reset-password" variant="secondary">
                 Forgot password?
               </Link>
             </Flex>
@@ -129,7 +129,7 @@ const Login: React.FC = () => {
           </Button>
           <Text fontSize="14px" fontWeight={400} textAlign="center">
             Don’t have account?{" "}
-            <Link href="/signup" variant="secondary">
+            <Link as={NavLink} href="/signup" variant="secondary">
               Create new account
             </Link>
           </Text>

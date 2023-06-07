@@ -3,7 +3,7 @@ import { Image } from "@chakra-ui/image";
 import { Button } from "@chakra-ui/button";
 import { Flex, Link, Heading } from "@chakra-ui/layout";
 import { categories } from "../../utils/ProductCategories";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const ProductCard: React.FC = () => {
   const navigate = useNavigate();
@@ -50,6 +50,7 @@ const ProductCard: React.FC = () => {
                       Ksh {price}
                     </Heading>
                     <Link
+                      as={NavLink}
                       fontWeight={700}
                       textTransform="capitalize"
                       textAlign="center"

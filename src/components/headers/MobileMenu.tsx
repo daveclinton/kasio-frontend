@@ -12,6 +12,7 @@ import {
   AccordionPanel,
 } from "@chakra-ui/accordion";
 import { categories } from "../../utils/ProductCategories";
+import { NavLink } from "react-router-dom";
 
 type MobileDrawerProps = {
   isOpen: boolean;
@@ -77,6 +78,8 @@ const MobileMenu: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
                       >
                         <Icon as={icon} color="primaryYellow" boxSize="20px" />
                         <Link
+                          as={NavLink}
+                          href="/category"
                           _hover={{
                             textDecoration: "none",
                             color: "primaryYellow",

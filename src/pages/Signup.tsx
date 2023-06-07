@@ -14,7 +14,7 @@ import {
 } from "firebase/auth";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { auth } from "../../firebase";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { ViewOffIcon, ViewIcon } from "@chakra-ui/icons";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -195,7 +195,7 @@ const SignUp: React.FC = () => {
           </Button>
           <Text fontSize="14px" fontWeight={400} textAlign="center">
             Have an account?{" "}
-            <Link href="/login" variant="secondary">
+            <Link as={NavLink} href="/login" variant="secondary">
               Proceed to Login
             </Link>
           </Text>

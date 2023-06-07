@@ -12,6 +12,7 @@ import {
   AccordionPanel,
 } from "@chakra-ui/accordion";
 import { categories } from "../../utils/ProductCategories";
+import { NavLink } from "react-router-dom";
 
 type DesktopMenuProps = {
   isOpen: boolean;
@@ -43,7 +44,10 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ isOpen, onClose }) => {
               aria-label=""
               as={TbDiscount2}
             />
-            <Link _hover={{ textDecor: "none", color: "primaryYellow" }}>
+            <Link
+              as={NavLink}
+              _hover={{ textDecor: "none", color: "primaryYellow" }}
+            >
               Deals & Promos
             </Link>
           </Flex>
@@ -56,7 +60,10 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ isOpen, onClose }) => {
               aria-label=""
               as={MdOutlineShoppingCart}
             />
-            <Link _hover={{ textDecor: "none", color: "primaryYellow" }}>
+            <Link
+              as={NavLink}
+              _hover={{ textDecor: "none", color: "primaryYellow" }}
+            >
               Open a Shop?
             </Link>
           </Flex>
@@ -81,6 +88,7 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ isOpen, onClose }) => {
                       >
                         <Icon as={icon} color="primaryYellow" boxSize="20px" />
                         <Link
+                          as={NavLink}
                           _hover={{
                             textDecoration: "none",
                             color: "primaryYellow",
@@ -104,6 +112,7 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ isOpen, onClose }) => {
                       <AccordionPanel display="flex" ml="20px" flexDir="column">
                         {subcategories.map((subcategory, subIndex) => (
                           <Link
+                            as={NavLink}
                             key={subIndex}
                             ml={8}
                             py={1}

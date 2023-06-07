@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Flex, Heading, Text } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { sendPasswordResetEmail } from "firebase/auth";
@@ -88,7 +88,7 @@ const ResetPassword: React.FC = () => {
           {canResend ? "Send" : `Resend (${countdown})`}
         </Button>
 
-        <Link href="/login" variant="secondary">
+        <Link as={NavLink} href="/login" variant="secondary">
           Back to Login
         </Link>
       </Flex>
