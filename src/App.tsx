@@ -30,14 +30,12 @@ const App: React.FC = () => {
         <LowerMenu />
         <Box mt="210px">
           <Routes>
-            <Route>
-              <Route path="/home" element={<Dashboard />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/check-email" element={<CheckEmail />} />
-              <Route path="/reset-password" element={<ResetPassword />} />
-              <Route path="/category" element={<Categories />} />
-            </Route>
+            <Route path="/home" element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/check-email" element={<CheckEmail />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/category" element={<Categories />} />
           </Routes>
         </Box>
         {pathname === "/home" && <Footer />}
