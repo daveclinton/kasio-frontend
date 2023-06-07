@@ -20,7 +20,7 @@ const App: React.FC = () => {
         <MainHeader />
         <Navbar />
         <LowerMenu />
-        <Box mt="210px">
+        <Box mt="210px" mb="150px">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
