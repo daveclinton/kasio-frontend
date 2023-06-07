@@ -86,7 +86,7 @@ const Categories: React.FC = () => {
                     </AccordionButton>
                     {subcategories?.map(({ name }, subCategoryData) => (
                       <AccordionPanel key={subCategoryData} pb={4}>
-                        <Link as={NavLink} href="/category" whiteSpace="nowrap">
+                        <Link as={NavLink} to="/category" whiteSpace="nowrap">
                           {name}
                         </Link>
                       </AccordionPanel>

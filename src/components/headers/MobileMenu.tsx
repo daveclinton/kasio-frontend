@@ -79,7 +79,7 @@ const MobileMenu: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
                         <Icon as={icon} color="primaryYellow" boxSize="20px" />
                         <Link
                           as={NavLink}
-                          href="/category"
+                          to="/category"
                           _hover={{
                             textDecoration: "none",
                             color: "primaryYellow",
@@ -104,6 +104,7 @@ const MobileMenu: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
                           <Link
                             key={subIndex}
                             ml={8}
+                            as={NavLink}
                             py={1}
                             _hover={{
                               textDecoration: "none",
@@ -113,7 +114,7 @@ const MobileMenu: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
                               textDecoration: "none",
                               color: "primaryYellow",
                             }}
-                            href={subcategory.link}
+                            to={subcategory.link}
                           >
                             {subcategory.name}
                           </Link>

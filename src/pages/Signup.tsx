@@ -195,7 +195,7 @@ const SignUp: React.FC = () => {
           </Button>
           <Text fontSize="14px" fontWeight={400} textAlign="center">
             Have an account?{" "}
-            <Link as={NavLink} href="/login" variant="secondary">
+            <Link as={NavLink} to="/login" variant="secondary">
               Proceed to Login
             </Link>
           </Text>

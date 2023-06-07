@@ -98,7 +98,7 @@ const Login: React.FC = () => {
           <Box>
             <Flex fontSize="14px" fontWeight={400} justify="space-between">
               <Text>Password</Text>
-              <Link as={NavLink} href="/reset-password" variant="secondary">
+              <Link as={NavLink} to="/reset-password" variant="secondary">
                 Forgot password?
               </Link>
             </Flex>
@@ -129,7 +129,7 @@ const Login: React.FC = () => {
           </Button>
           <Text fontSize="14px" fontWeight={400} textAlign="center">
             Don’t have account?{" "}
-            <Link as={NavLink} href="/signup" variant="secondary">
+            <Link as={NavLink} to="/signup" variant="secondary">
               Create new account
             </Link>
           </Text>
