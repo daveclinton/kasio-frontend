@@ -14,7 +14,6 @@ import Footer from "./components/headers/Footer";
 import Categories from "./pages/Categories";
 
 const App: React.FC = () => {
-  // const navigate = useNavigate();
   const location = useLocation();
   const { pathname } = location;
 
