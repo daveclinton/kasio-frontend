@@ -20,6 +20,7 @@ import DesktopMenu from "./DesktopMenu";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { auth } from "../../../firebase";
 import { setUser } from "../../store/auth/actions";
+import { NavLink } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   const [isLargerThanMd] = useMediaQuery("(min-width: 821px)");
@@ -86,7 +87,7 @@ const Navbar: React.FC = () => {
         >
           <Flex gap="20px">
             <Heading fontSize="30px">
-              <Link variant="unstyled" href="/home">
+              <Link as={NavLink} variant="unstyled" to="/">
                 Kasio
               </Link>
             </Heading>
