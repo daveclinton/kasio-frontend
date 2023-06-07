@@ -119,7 +119,8 @@ const Navbar: React.FC = () => {
                 <Text whiteSpace="nowrap">{user?.displayName}</Text>
               ) : (
                 <Link
-                  href="/login"
+                  as={NavLink}
+                  to="/login"
                   _hover={{ textDecor: "none", color: "primaryYellow" }}
                   whiteSpace="nowrap"
                 >
@@ -140,11 +141,21 @@ const Navbar: React.FC = () => {
                   <Portal>
                     <PopoverContent maxW="195px">
                       <PopoverBody display="flex" flexDir="column" gap="10px">
-                        <Link variant="primary">Favorite Products</Link>
-                        <Link variant="primary">My Account</Link>
-                        <Link variant="primary">My Orders</Link>
-                        <Link variant="primary">My Account</Link>
-                        <Link variant="primary">Delivery Addresses</Link>
+                        <Link as={NavLink} variant="primary">
+                          Favorite Products
+                        </Link>
+                        <Link as={NavLink} variant="primary">
+                          My Account
+                        </Link>
+                        <Link as={NavLink} variant="primary">
+                          My Orders
+                        </Link>
+                        <Link as={NavLink} variant="primary">
+                          My Account
+                        </Link>
+                        <Link as={NavLink} variant="primary">
+                          Delivery Addresses
+                        </Link>
                         <Button
                           mt="-10px"
                           _hover={{ textDecor: "none", color: "primaryYellow" }}
@@ -197,7 +208,8 @@ const Navbar: React.FC = () => {
                   <Text whiteSpace="nowrap">{user?.displayName}</Text>
                 ) : (
                   <Link
-                    href="/login"
+                    as={NavLink}
+                    to="/login"
                     _hover={{ textDecor: "none", color: "primaryYellow" }}
                     whiteSpace="nowrap"
                   >
@@ -217,11 +229,21 @@ const Navbar: React.FC = () => {
                     <Portal>
                       <PopoverContent maxW="195px">
                         <PopoverBody display="flex" flexDir="column" gap="10px">
-                          <Link variant="primary">Favorite Products</Link>
-                          <Link variant="primary">My Account</Link>
-                          <Link variant="primary">My Orders</Link>
-                          <Link variant="primary">My Account</Link>
-                          <Link variant="primary">Delivery Addresses</Link>
+                          <Link as={NavLink} variant="primary">
+                            Favorite Products
+                          </Link>
+                          <Link as={NavLink} variant="primary">
+                            My Account
+                          </Link>
+                          <Link as={NavLink} variant="primary">
+                            My Orders
+                          </Link>
+                          <Link as={NavLink} variant="primary">
+                            My Account
+                          </Link>
+                          <Link as={NavLink} variant="primary">
+                            Delivery Addresses
+                          </Link>
                           <Button
                             mt="-10px"
                             _hover={{
