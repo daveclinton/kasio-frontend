@@ -23,14 +23,14 @@ const NavigationBar: React.FC = () => {
       </Center>
       <Center w="100%">
         <Center maxW="80%" w="100%" justifyContent="space-between">
-          <Flex align="center">
+          <Flex visibility={{ base: "hidden", lg: "visible" }} align="center">
             <Icon as={TbTruckDelivery} color="primaryYellow" />
             <Text fontSize="13px">
               FREE Delivery in Migori On Orders Ksh.5,000+
             </Text>
           </Flex>
           <Flex align="center" fontSize="14px" fontWeight={400} gap="20px">
-            <Flex gap="20px">
+            <Flex display={{ base: "none", lg: "flex" }} gap="20px">
               <Text>My Account</Text>
               <Text>Cart</Text>
               <Text>Login</Text>
