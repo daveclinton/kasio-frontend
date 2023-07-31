@@ -6,6 +6,15 @@ export const colors = {
 };
 const theme = extendTheme({
   colors,
+  styles: {
+    global: () => ({
+      body: {
+        bg: "#fff",
+        color: "#353535",
+        fontFamily: "'Ysabeau Office', sans-serif",
+      },
+    }),
+  },
   components: {
     Popover: popoverTheme,
     Drawer: {
