@@ -3,6 +3,7 @@ import { popoverTheme } from "./styles/popOverTheme";
 
 export const colors = {
   primaryYellow: "#e07e1b",
+  darkGrey: "#222529",
 };
 const theme = extendTheme({
   colors,

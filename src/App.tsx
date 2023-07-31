@@ -1,7 +1,12 @@
 import * as React from "react";
+import NavigationBar from "./components/headers/NavigationBar";
 
 const App: React.FC = () => {
-  return <div></div>;
+  return (
+    <>
+      <NavigationBar />
+    </>
+  );
 };
 
 export default App;
