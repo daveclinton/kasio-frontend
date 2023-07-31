@@ -22,7 +22,7 @@ const NavigationBar: React.FC = () => {
         </Button>
       </Center>
       <Center w="100%">
-        <Center maxW="80%" w="100%" justifyContent="space-between">
+        <Center p="10px" maxW="80%" w="100%" justifyContent="space-between">
           <Flex visibility={{ base: "hidden", lg: "visible" }} align="center">
             <Icon as={TbTruckDelivery} color="primaryYellow" />
             <Text fontSize="13px">
