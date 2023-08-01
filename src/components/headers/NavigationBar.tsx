@@ -1,9 +1,12 @@
 import * as React from "react";
 import { Box, Center, Text, Flex } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
+import { Image } from "@chakra-ui/image";
 import { Icon } from "@chakra-ui/icon";
+import { Input } from "@chakra-ui/input";
 import { TbTruckDelivery } from "react-icons/tb";
 import { BsInstagram, BsFacebook, BsTwitter } from "react-icons/bs";
+import Logo from "../../assets/KASIO.svg";
 
 const NavigationBar: React.FC = () => {
   return (
@@ -22,12 +25,38 @@ const NavigationBar: React.FC = () => {
         </Button>
       </Center>
       <Center w="100%">
-        <Center p="10px" maxW="80%" w="100%" justifyContent="space-between">
+        <Center p="10px" maxW="70%" w="100%" justifyContent="space-between">
           <Flex visibility={{ base: "hidden", lg: "visible" }} align="center">
             <Icon as={TbTruckDelivery} color="primaryYellow" />
             <Text fontSize="13px">
               FREE Delivery in Migori On Orders Ksh.5,000+
             </Text>
+          </Flex>
+          <Flex align="center" fontSize="14px" fontWeight={400} gap="20px">
+            <Flex display={{ base: "none", lg: "flex" }} gap="20px">
+              <Text>My Account</Text>
+              <Text>Cart</Text>
+              <Text>Login</Text>
+            </Flex>
+            <Flex gap="20px">
+              <Icon as={BsInstagram} color="primaryYellow" />
+              <Icon as={BsFacebook} color="primaryYellow" />
+              <Icon as={BsTwitter} color="primaryYellow" />
+            </Flex>
+          </Flex>
+        </Center>
+      </Center>
+      <Center w="100%">
+        <Center px="10px" maxW="70%" w="100%" justifyContent="space-between">
+          <Flex visibility={{ base: "hidden", lg: "visible" }} align="center">
+            <Image src={Logo} boxSize="80px" />
+          </Flex>
+          <Flex visibility={{ base: "hidden", lg: "visible" }} align="center">
+            <Input
+              bg="primaryYellow"
+              placeholder="Here is a sample placeholder"
+              size="sm"
+            />
           </Flex>
           <Flex align="center" fontSize="14px" fontWeight={400} gap="20px">
             <Flex display={{ base: "none", lg: "flex" }} gap="20px">
