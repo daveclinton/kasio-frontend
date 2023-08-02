@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Box, Center, Text, Flex } from "@chakra-ui/layout";
-import { Button } from "@chakra-ui/button";
+import { Button, IconButton } from "@chakra-ui/button";
 import { Image } from "@chakra-ui/image";
 import { Icon } from "@chakra-ui/icon";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
@@ -10,6 +10,7 @@ import { RxAvatar } from "react-icons/rx";
 import { GrFavorite } from "react-icons/gr";
 import { BiShoppingBag, BiSearch } from "react-icons/bi";
 import Logo from "../../assets/KASIO.svg";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 const NavigationBar: React.FC = () => {
   return (
@@ -54,15 +55,24 @@ const NavigationBar: React.FC = () => {
           </Flex>
         </Center>
       </Center>
-      <Center w="100%">
+      <Center h="80px" w="100%">
         <Center
-          p={{ base: "20px", lg: "10px" }}
+          p={{ base: "0px", lg: "10px" }}
           maxW={{ base: "90%", lg: "70%" }}
           w="100%"
           justifyContent="space-between"
         >
-          <Flex align="center">
-            <Image src={Logo} boxSize="100px" />
+          <Flex cursor="pointer" align="center">
+            <IconButton
+              display={{ base: "block", lg: "none" }}
+              aria-label="Click Categories"
+              icon={<HamburgerIcon boxSize="30px" color="primaryYellow" />}
+            />
+            <Image
+              mr="10px"
+              src={Logo}
+              boxSize={{ base: "120px", md: "100px" }}
+            />
           </Flex>
           <Flex
             visibility={{ base: "hidden", lg: "visible" }}
