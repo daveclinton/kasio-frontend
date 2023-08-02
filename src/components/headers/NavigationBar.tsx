@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Center, Text, Flex } from "@chakra-ui/layout";
+import { Box, Center, Text, Flex, HStack, Link } from "@chakra-ui/layout";
 import { Button, IconButton } from "@chakra-ui/button";
 import { Image } from "@chakra-ui/image";
 import { Icon } from "@chakra-ui/icon";
@@ -128,6 +128,29 @@ const NavigationBar: React.FC = () => {
               <Icon as={BiSearch} color="white" />
             </InputRightElement>
           </InputGroup>
+        </Center>
+      </Center>
+      <Center display={{ base: "none", lg: "flex" }} h="80px" w="100%">
+        <Center
+          p={{ base: "0px", lg: "10px" }}
+          maxW={{ base: "90%", lg: "70%" }}
+          w="100%"
+          justifyContent="flex-start"
+        >
+          <Button
+            leftIcon={<HamburgerIcon />}
+            bg="primaryYellow"
+            color="white"
+            variant="solid"
+            _hover={{ bg: "primaryYellow", color: "white" }}
+          >
+            ALL CATEGORIES
+          </Button>
+          <HStack ml="30px" spacing="24px">
+            <Link>Home</Link>
+            <Link>Shop</Link>
+            <Link>About</Link>
+          </HStack>
         </Center>
       </Center>
     </Box>
