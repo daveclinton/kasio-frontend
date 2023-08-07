@@ -107,8 +107,14 @@ const NavigationBar: React.FC = () => {
                   My Account
                 </Text>
               </Box>
-              <Icon as={GrFavorite} boxSize="30px" />
+              <Flex  boxSize="30px" >            
+                 <Icon as={GrFavorite} boxSize="30px" />
+                 <Text color="red" ml="3px" fontSize="14px">7</Text>
+              </Flex>
+              <Flex   boxSize="30px" >            
               <Icon as={BiShoppingBag} boxSize="30px" />
+              <Text color="red" fontSize="15px">0</Text>
+             </Flex>             
             </Flex>
           </Flex>
         </Center>
