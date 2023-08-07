@@ -1,5 +1,5 @@
 import { extendTheme } from "@chakra-ui/theme-utils";
-import { popoverTheme } from "./styles/popOverTheme";
+import { menuTheme } from "./styles/menuTheme";
 
 export const colors = {
   primaryYellow: "#e07e1b",
@@ -17,7 +17,7 @@ const theme = extendTheme({
     }),
   },
   components: {
-    Popover: popoverTheme,
+    Menu: menuTheme,
     Drawer: {
       parts: ["dialog", "header", "body"],
       variants: {
