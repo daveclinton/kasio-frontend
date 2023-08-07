@@ -14,11 +14,10 @@ const baseStyle = definePartsStyle({
     },
   },
   menu: {
-    bg: "white",
+    // ml: "148px",
   },
   list: {
     py: "4",
-    borderRadius: "xl",
     border: "none",
     bg: "#fff",
   },
@@ -35,7 +34,6 @@ const baseStyle = definePartsStyle({
     },
   },
   groupTitle: {
-    textTransform: "uppercase",
     color: "white",
     textAlign: "center",
     letterSpacing: "wider",

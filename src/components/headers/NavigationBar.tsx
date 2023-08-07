@@ -10,8 +10,9 @@ import { RxAvatar } from "react-icons/rx";
 import { GrFavorite } from "react-icons/gr";
 import { BiShoppingBag, BiSearch } from "react-icons/bi";
 import Logo from "../../assets/KASIO.svg";
-import { ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { ChevronRightIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
+import { categories } from "../../utils/ProductCategories";
 
 const NavigationBar: React.FC = () => {
   return (
@@ -142,7 +143,7 @@ const NavigationBar: React.FC = () => {
           maxW={{ base: "90%", lg: "70%" }}
           w='100%'
           justifyContent='flex-start'>
-          <Menu>
+          <Menu autoSelect={false} gutter={20} closeOnSelect={false}>
             <MenuButton
               as={Button}
               variant='primary'
@@ -150,11 +151,25 @@ const NavigationBar: React.FC = () => {
               ALL CATEGORIES
             </MenuButton>
             <MenuList>
-              <MenuItem>Download</MenuItem>
-              <MenuItem>Create a Copy</MenuItem>
-              <MenuItem>Mark as Draft</MenuItem>
-              <MenuItem>Delete</MenuItem>
-              <MenuItem>Attend a Workshop</MenuItem>
+              {categories.map(({ name }, menuData) => (
+                <MenuItem key={menuData}>
+                  <Menu placement='right'>
+                    <MenuButton
+                      display='flex'
+                      justifyContent='space-between'
+                      as={Button}
+                      rightIcon={
+                        <ChevronRightIcon justifyContent='flex-end' />
+                      }>
+                      {name}
+                    </MenuButton>
+                    <MenuList w='100%'>
+                      <MenuItem>Download</MenuItem>
+                      <MenuItem>Create a Copy</MenuItem>
+                    </MenuList>
+                  </Menu>
+                </MenuItem>
+              ))}
             </MenuList>
           </Menu>
 
